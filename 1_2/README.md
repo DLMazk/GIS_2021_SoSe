@@ -1,3 +1,3 @@
 # GIS_2021_SoSe
 
-Hallo, hier kann man schreiben!
+Dies ist die Ababe für die Aufgabe 1.2!

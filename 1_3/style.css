@@ -1,17 +1,83 @@
 body{
-    background: rgb(255, 251, 251);
-    font-family:Arial, Helvetica, sans-serif
+
+    background-image: url("Media/bg.png");
+    font-family:Arial, Helvetica, sans-serif;
+    
+    
+    width: 800px;
+    
+    margin: auto;
 }
 
 h1 {
+
     font-weight: 100;
     text-shadow: 1px 1px 20px rgb(0, 0, 0);
 }
-nav {
-    text-decoration: none;
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(0, 0, 0);
-    text-shadow: 1px 1px 20px rgb(0, 0, 0);
 
+h2 {
+    color: green;
+}
+
+h3{
+    background: green;
+}
+
+nav {
+
+    position: sticky;
+    top: 0;
+
+
+
+}
+
+#aktuell{
+
+    color: black;
+
+}
+
+.Navi {
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+
+}
+
+.Navi:hover {
+
+    color: grey;
+
+}
+
+ul {
+
+    background: rgb(223, 253, 223);
+    width: 350px;
+     
+    padding: 20px 20px 20px 20px;
+    margin: 20px 20px 20px 20px;
+    
+   
+}
+
+li{
+
+    
+
+}
+
+a {
+
+    color: black;
+
+
+}
+
+
+section {
+    color: green;
 
 }

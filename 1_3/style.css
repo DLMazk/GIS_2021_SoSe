@@ -7,28 +7,32 @@ body{
     width: 800px;
     
     margin: auto;
+
 }
 
 h1 {
 
     font-weight: 100;
     text-shadow: 1px 1px 20px rgb(0, 0, 0);
+
 }
 
 h2 {
+
     color: green;
+
 }
 
 h3{
+
     background: green;
+
 }
 
 nav {
 
     position: sticky;
     top: 0;
-
-
 
 }
 
@@ -60,13 +64,6 @@ ul {
     padding: 20px 20px 20px 20px;
     margin: 20px 20px 20px 20px;
     
-   
-}
-
-li{
-
-    
-
 }
 
 a {
@@ -76,8 +73,15 @@ a {
 
 }
 
+.link {
 
-section {
     color: green;
+
+}
+
+#Kontakt {
+
+    color: green;
+    background: none;
 
 }

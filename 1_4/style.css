@@ -19,13 +19,18 @@ h1 {
 
 h2 {
 
+    transition: color 4s ease-in-out 0s; 
     color: green;
+
 
 }
 
 h3{
 
     background: green;
+
+     
+
 
 }
 
@@ -48,11 +53,14 @@ nav {
     color: rgb(255, 255, 255);
     text-decoration: none;
 
+    transition: color 0.5s ease-in-out 0.5s;
+
 }
 
 .Navi:hover {
 
     color: grey;
+
 
 }
 
@@ -91,3 +99,35 @@ p strong, li strong {
     color: green;
 
 }
+
+.toTop {
+
+    transition: all 1s ease-in-out 0s;
+    position: relative;
+    top: 0;
+
+
+}
+
+.toTop:hover {
+
+
+    top: -10px;
+
+}
+
+img {
+
+    transition: all 0.5s ease-in 0s;
+    transform: scale(1);
+
+}
+
+img:hover {
+
+    transform: scale(1.1);
+
+}
+
+
+

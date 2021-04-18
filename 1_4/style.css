@@ -172,7 +172,7 @@ main>div {
   
   .flex-container > li, .flex-container > div    {
 
-    background-color: #f1f1f1;
+    background: #f1f1f1;
     margin: 5px;
     padding: 20px;
     font-size: auto;
@@ -250,6 +250,8 @@ main>div {
 
     #gif {
 
+        margin: auto;
+        
         transform: scale(0.5);
 
     }

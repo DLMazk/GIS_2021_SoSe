@@ -84,7 +84,7 @@ ol li, main p {
 
     padding-right: 20px;
     position: relative;
-    left: 20px;
+    left: 10px;
 
 }
 
@@ -140,7 +140,7 @@ main img {
 
 }
 
-img:hover {
+main img:hover {
 
     transform: scale(1.1);
 
@@ -158,6 +158,89 @@ img:hover {
 main>div {
 
     margin-bottom: 200px;
+
+}
+
+.flex-container {
+
+    display: flex;
+    background-color: green;
+    align-items: center;
+    flex-direction: column;
+
+  }
+  
+  .flex-container > li, .flex-container > div    {
+
+    background-color: #f1f1f1;
+    margin: 5px;
+    padding: 20px;
+    font-size: auto;
+
+  }
+
+
+@media screen and (max-width: 1024px) { 
+    
+
+
+
+    main img {
+
+        transition: none;
+
+    }
+
+    img:hover {
+
+        transform: none;
+
+    }
+
+    h1 {
+
+        color: green;
+
+    }
+
+
+}
+
+@media screen and (max-width: 800px) {
+    
+    body {
+
+        width: auto;
+
+    }
+
+}
+
+@media screen and (max-width: 600px) { 
+    
+    body {
+
+        width: auto;
+
+    }   
+
+    main img {
+
+        transition:none;
+
+    }
+
+    img:hover {
+
+        transform: none;
+
+    }
+
+    h1 {
+
+        color:green;
+
+    }
 
 }
 

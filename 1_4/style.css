@@ -67,8 +67,7 @@ nav {
 
 ul {
 
-    position: relative;
-    top: 50px;
+
 
     background: rgb(223, 253, 223);
     width: 350px;
@@ -146,20 +145,6 @@ main img:hover {
 
 }
 
-.rechts {
-
-    float: right;
-    display: block;
-    
-}
-
-
-
-main>div {
-
-    margin-bottom: 200px;
-
-}
 
 .flex-container {
 
@@ -178,6 +163,9 @@ main>div {
     font-size: auto;
 
   }
+
+
+  
 
 
 @media screen and (max-width: 1024px) { 
@@ -247,6 +235,8 @@ main>div {
         height: auto;
 
     }
+
+    
 
 }
 

@@ -199,11 +199,7 @@ main>div {
 
     }
 
-    #gif {
 
-        transform: scale(0.9);
-
-    }
 
 
 }
@@ -244,19 +240,11 @@ main>div {
 
     }
 
-    #gif {
-
-        margin: auto;
-        
-        transform: scale(0.5);
-
-    }
 
     ul {
 
         width: auto;
-
-
+        height: auto;
 
     }
 

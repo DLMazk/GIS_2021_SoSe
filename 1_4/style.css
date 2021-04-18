@@ -36,7 +36,7 @@ h3{
 }
 
 nav {
-
+    display: absolute;
     position: sticky;
     top: 0;
 
@@ -253,6 +253,12 @@ main>div {
         margin: auto;
         
         transform: scale(0.5);
+
+    }
+
+    ul {
+
+        width: auto;
 
     }
 

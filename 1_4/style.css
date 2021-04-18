@@ -67,13 +67,27 @@ nav {
 
 ul {
 
+    position: relative;
+    top: 50px;
+
     background: rgb(223, 253, 223);
     width: 350px;
      
     padding: 20px 20px 20px 20px;
     margin: 20px 20px 20px 20px;
     
+    
 }
+
+
+ol li, main p {
+
+    padding-right: 20px;
+    position: relative;
+    left: 20px;
+
+}
+
 
 a {
 
@@ -103,6 +117,7 @@ p strong, li strong {
 
 .toTop {
 
+    float: none;
     transition: all 1s ease-in-out 0s;
     position: relative;
     top: 0;
@@ -119,6 +134,7 @@ p strong, li strong {
 
 main img {
 
+    display: block;
     transition: all 0.5s ease-in 0s;
     transform: scale(1);
 
@@ -130,5 +146,19 @@ img:hover {
 
 }
 
+.rechts {
+
+    float: right;
+    display: block;
+    
+}
+
+
+
+main>div {
+
+    margin-bottom: 200px;
+
+}
 
 

@@ -191,7 +191,7 @@ main>div {
 
     }
 
-    img:hover {
+    main img:hover {
 
         transform: none;
 
@@ -244,7 +244,7 @@ main>div {
 
     h1 {
 
-        color:red;
+        color:green;
 
     }
 
@@ -259,6 +259,8 @@ main>div {
     ul {
 
         width: auto;
+
+
 
     }
 

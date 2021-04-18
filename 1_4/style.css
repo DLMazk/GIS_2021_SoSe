@@ -203,6 +203,12 @@ main>div {
 
     }
 
+    #gif {
+
+        transform: scale(0.9);
+
+    }
+
 
 }
 
@@ -239,6 +245,12 @@ main>div {
     h1 {
 
         color:green;
+
+    }
+
+    #gif {
+
+        transform: scale(0.5);
 
     }
 

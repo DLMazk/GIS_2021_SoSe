@@ -11,6 +11,8 @@ body{
 }
 
 
+
+
 header>h1 {
 
     font-weight: 100;
@@ -29,16 +31,17 @@ h2 {
 h3{
 
     background: green;
-
-     
+    
 
 
 }
 
 nav {
+
     display: absolute;
     position: sticky;
     top: 0;
+    z-index: -1;
 
 }
 
@@ -125,7 +128,6 @@ p strong, li strong {
 }
 
 .toTop:hover {
-
 
     top: -10px;
 

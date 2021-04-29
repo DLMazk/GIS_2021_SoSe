@@ -14,7 +14,9 @@ function min() {
 min();
 //b)
 function isEven() {
-    return true;
+    let n = 0;
+    n = 3;
+    return false;
 }
 function test() {
     let _x = 23;
@@ -22,4 +24,5 @@ function test() {
     console.log(_y);
 }
 test();
+//c)
 //# sourceMappingURL=script.js.map

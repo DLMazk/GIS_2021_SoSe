@@ -21,10 +21,12 @@ min();
 
 //b)
 function isEven(): boolean {
+    let n: number = 0; 
+
+    n = 3; 
 
 
-
-    return true;
+    return false;
 
 }
 
@@ -39,3 +41,5 @@ function test(): void {
 }
 test();
 
+
+//c)

@@ -20,26 +20,65 @@ min();
 
 
 //b)
-function isEven(): boolean {
-    let n: number = 0; 
+/*
+function isEven(): void {
+    
+    let even: boolean = true;
 
-    n = 3; 
+    let _n: number = 75;
 
+    let _y: number = _n % 2;
 
-    return false;
+    if (_y == 1) {
 
+        even = false;
+
+    }
+    console.log(even);
 }
+isEven();
+*/
 
-function test(): void {
 
-    let _x: number = 23;
 
-    let _y: number = _x / 2;
+function isEven(n: number): boolean {
 
-    console.log(_y);
+    let y: number = n % 2;
 
+    if (y == 1) {
+        return false;
+    } else {
+        return true;
+    }
+    
 }
-test();
+console.log(isEven(50));
 
 
 //c)
+interface Student {
+
+    name: string;
+    matrikel: number;
+    studiengang: string;
+    fertig?: string;
+
+}
+let m1: Student = {name: "Dave", matrikel: 141516, studiengang: "MIB", fertig: "absolviert"};
+let m2: Student = {name: "Stuart", matrikel: 171819, studiengang: "OMB"};
+let m3: Student = {name: "Kevin", matrikel: 202122, studiengang: "MKB"};
+
+let sArray: string[] = [[m1, m2, m3]]
+
+
+
+function showInfo(): void {
+
+    console.log(m1.name + " " + m1.matrikel + " " + m1. studiengang);
+    console.log(m2.name + " " + m2.matrikel + " " + m2. studiengang);
+    console.log(m3.name + " " + m3.matrikel + " " + m3. studiengang);
+
+}
+showInfo();
+
+

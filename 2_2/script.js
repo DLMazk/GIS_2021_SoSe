@@ -1,11 +1,17 @@
 "use strict";
 //Aufgabe 1
-// a)
-function min(...args) {
-    return Math.min.apply(Math, args);
+//a)
+function min(nArray) {
+    let minimum = nArray[0];
+    for (let i = 0; i < nArray.length - 1; i++) {
+        if (nArray[i] > nArray[i + 1] && minimum > nArray[i + 1]) {
+            minimum = nArray[i + 1];
+        }
+    }
+    return minimum;
 }
-console.log(min(3, 9, 11, 33, 42));
-// b)
+console.log(min([5, 10, 3, 15, 2]));
+//b)
 function isEven(n) {
     if (n == 0)
         return true;
@@ -19,68 +25,80 @@ function isEven(n) {
 console.log(isEven(50));
 console.log(isEven(75));
 console.log(isEven(-1));
-let p1 = {
-    nameStudent: "Stuart",
-    matrikelnummer: 111213,
-    studiengang: "MIB"
-};
-let p2 = {
-    nameStudent: "Kevin",
-    matrikelnummer: 131415,
-    studiengang: "OMB"
-};
-let p3 = {
-    nameStudent: "Bob",
-    matrikelnummer: 171819,
-    studiengang: "MKB"
-};
-let p = [
-    { "nameStudent": "Jason", "matrikelnummer": 111213, "studiengang": "MIB" },
-    { "nameStudent": "Nicole", "matrikelnummer": 131415, "studiengang": "OMB" },
-    { "nameStudent": "Aydin", "matrikelnummer": 171819, "studiengang": "MKB" }
-];
-p = [];
-p.push(p1, p2, p3);
-function addStudent(nameStudent, matrikelnummer, studiengang) {
-    let p4 = { nameStudent, matrikelnummer, studiengang };
-    p.push(p4);
+//c)
+class Student {
+    constructor(_lastName, _firstName, _semester, _matrikelnummer) {
+        this.lastName = _lastName;
+        this.firstName = _firstName;
+        this.semester = _semester;
+        this.matrikelnummer = _matrikelnummer;
+    }
+    showInfo() {
+        console.log("Name: " + this.firstName + " " + this.lastName + "\nStudiensemester: " + this.semester + "\nMatrikelnummer: " + this.matrikelnummer);
+    }
 }
-addStudent("Mina", 232425, "MKB");
-showInfo(232425);
-function showInfo(matrikelnummer) {
-    for (let i = 0; i < p.length; i++) {
-        if (matrikelnummer == p[i].matrikelnummer) {
-            console.log(p[i].nameStudent, p[i].matrikelnummer, p[i].studiengang);
-            return true;
+let s1 = new Student("Litterst", "Daniel", 2, 265709);
+let s2 = new Student("Potter", "Harry", 8, 778878);
+let s3 = new Student("Poppins", "Mary", 4, 269530);
+let uniStudents = [s1, s2, s3];
+uniStudents.push(new Student("Gonzalez", "Speedy", 1, 261231));
+console.log("Der neueste Student ist " + uniStudents[3].firstName + " " + uniStudents[3].lastName + ".");
+console.log("Es sind " + uniStudents.length + " Studenten im Moment eingeschrieben");
+console.log("Der dritte Student ist im " + uniStudents[2].semester + ". Semester an der Hochschule");
+console.log("Die Matrikelnummer des ersten Studenten lautet: " + uniStudents[0].matrikelnummer + ".");
+for (let i = 0; i < uniStudents.length; i++) {
+    uniStudents[i].showInfo();
+}
+//Aufgabe 2
+//a) und b)
+function backwards(_givenArray) {
+    let backwArray = new Array;
+    for (let i = _givenArray.length - 1; i >= 0; i--) {
+        backwArray.push(_givenArray[i]);
+    }
+    return backwArray;
+}
+let array = [5, 42, 17, 2018, -10, 60, -10010];
+let arrBack = backwards(array);
+console.log(array);
+console.log(arrBack);
+function join(_firstArray, _manyMoreArray) {
+    _firstArray.push(..._manyMoreArray);
+    return _firstArray;
+}
+console.log(join(array, [15, 9001, -440]));
+//c)
+function split(_arrToSplit, _index1, _index2) {
+    let splitArray = new Array;
+    if (_index1 > _index2) {
+        for (let i = _index1; i >= _index2; i--) {
+            splitArray.push(_arrToSplit[i]);
         }
     }
-    console.log("student not found");
-    return false;
+    if (_index1 < 0) {
+        _index1 = 0;
+        for (let i = _index1; i <= _index2; i++) {
+            splitArray.push(_arrToSplit[i]);
+        }
+    }
+    if (_index2 > _arrToSplit.length - 1) {
+        _index2 = _arrToSplit.length - 1;
+        for (let i = _index1; i <= _index2; i++) {
+            splitArray.push(_arrToSplit[i]);
+        }
+    }
+    for (let i = _index1; i <= _index2; i++) {
+        splitArray.push(_arrToSplit[i]);
+    }
+    return splitArray;
 }
-addStudent("Paul", 910111, "OMB");
-showInfo(910111);
-showInfo(111213);
-showInfo(131415);
-showInfo(171819);
-// Aufgabe 2
-//a)
-const array = ["one", "two", "three"];
-console.log("array:", array);
-const reversed = array.reverse();
-console.log("reversed:", reversed);
-//b)
-const elements = ["Alexa", "Licht an!"];
-console.log(elements.join());
-//c)
-const str = "Brautkleid bleibt Brautkleid und Blaukraut bleibt Blaukraut.";
-const word = str.split(" ");
-console.log(word[3]);
-const chars = str.split("");
-console.log(chars[8]);
-const strCopy = str.split(" ");
-console.log(strCopy);
+console.log(array);
+console.log(split(array, 9, 3));
+console.log(split(array, 4, 1));
+console.log(split(array, 3, 2));
+console.log(split(array, 2, 3));
 //Aufgabe 3
-let canvas = document.getElementById("firstone");
+let canvas = document.getElementById("myFirstCanvas");
 let context = canvas.getContext("2d");
 context.fillStyle = "lightblue";
 context.fillRect(0, 0, 500, 400);
@@ -147,71 +165,27 @@ context.lineTo(480, 140);
 context.closePath();
 context.fill();
 context.stroke();
-console.log(canvas);
-function getRandom(max) {
-    return Math.floor(Math.random() * max);
-}
-function createRect() {
-    let x = getRandom(500);
-    let w = getRandom(500);
-    let y = getRandom(400);
-    let h = getRandom(400);
-    context.fillRect(x, y, w, h);
-}
-createRect();
-class Rectangle {
-    createRectangle(_width, _height) {
-        this.width = _width;
-        this.height = _height;
+let cnvs = document.getElementById("my2ndCanvas");
+let cntxt = cnvs.getContext("2d");
+class Rectangular {
+    constructor() {
+        this.xPos = Math.floor(Math.random() * 490);
+        this.yPos = Math.floor(Math.random() * 390);
+        this.width = Math.floor(Math.random() * 200) + 1;
+        this.height = Math.floor(Math.random() * 200) + 1;
     }
-    createRandomRec() {
-        this.width = Math.floor(Math.random() * 100);
-        this.height = Math.floor(Math.random() * 100);
-    }
-    drawRectangle(x, y, fill, color) {
-        let c = "yellow";
-        context.beginPath();
-        context.rect(x, y, this.width, this.height);
-        if (color) {
-            context.fillStyle = color;
-            context.strokeStyle = color;
-        }
-        else {
-            context.fillStyle = c;
-            context.strokeStyle = c;
-        }
-        if (fill) {
-            context.fill();
-        }
-        context.stroke();
-    }
-    drawRandom() {
-        let x = Math.floor(Math.random() * 500);
-        let y = Math.floor(Math.random() * 500);
-        context.beginPath();
-        context.rect(x, y, this.width, this.height);
-        context.fillStyle = "grey";
-        context.strokeStyle = "red";
-        context.fill();
-        context.stroke();
+    drawRect() {
+        cntxt.fillStyle = "black";
+        cntxt.fillRect(this.xPos, this.yPos, this.width, this.height);
     }
 }
-const r = new Rectangle();
-r.createRectangle(300, 300);
-r.drawRectangle(300, 650, true);
-const r1 = new Rectangle();
-r1.createRandomRec();
-r1.drawRectangle(250, 650, false);
-const r2 = new Rectangle();
-r2.createRandomRec();
-r2.drawRectangle(500, 750, true, "blue");
-const r3 = new Rectangle();
-r3.createRandomRec();
-const r4 = new Rectangle();
-r4.createRandomRec();
-const r5 = new Rectangle();
-r5.createRandomRec();
-let rectangles = new Array();
-rectangles = [r3, r4, r5];
-rectangles.forEach(rec => rec.drawRandom());
+let rect1 = new Rectangular();
+rect1.drawRect();
+let rect2 = new Rectangular();
+let rect3 = new Rectangular();
+let rect4 = new Rectangular();
+let rectArr = [rect2, rect3, rect4];
+for (let i = 0; i < rectArr.length; i++) {
+    rectArr[i].drawRect();
+}
 //# sourceMappingURL=script.js.map

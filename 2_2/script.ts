@@ -1,289 +1,260 @@
+//Aufgabe 1
+//a)
+function min(nArray: number[]): number {
 
-    //Aufgabe 1
-    // a)
-    function min(...args: number[]): number {
-    return Math.min.apply(Math, args);
+    let minimum: number = nArray[0];
+    for (let i: number = 0; i < nArray.length - 1; i++) {
+
+        if (nArray[i] > nArray[i + 1] && minimum > nArray[i + 1]) {
+
+            minimum = nArray[i + 1];
+
+        } 
     }
+    return minimum;
 
-    console.log(min(3, 9, 11, 33, 42));
+}
+console.log(min([5, 10, 3, 15, 2]));
+
     
     
     
-    // b)
-    function isEven ( n: number ): boolean {
-    if (n == 0)
+    
+//b)
+function isEven ( n: number ): boolean {
+ if (n == 0)
       return true;
 
-    if (n == 1)
+ if (n == 1)
       return false;
 
-    if (n < 0)
+ if (n < 0)
       return isEven (-n);
     else
       return isEven(n - 2);
     }
 
-    console.log(isEven(50));
-    console.log(isEven(75));
-    console.log(isEven(-1));
+console.log(isEven(50));
+console.log(isEven(75));
+console.log(isEven(-1));
     
 
-    // c)
-    interface Student {
-      nameStudent: String;
-      matrikelnummer: number;
-      studiengang: String;
+//c)
+class Student {
+
+    lastName: string;
+    firstName: string;
+    semester: number;
+    matrikelnummer: number;
+
+    constructor(_lastName: string, _firstName: string, _semester: number, _matrikelnummer: number) {
+
+        this.lastName = _lastName;
+        this.firstName = _firstName;
+        this.semester = _semester;
+        this.matrikelnummer = _matrikelnummer;
     }
-    let p1: Student = { 
-      nameStudent: "Stuart",
-      matrikelnummer: 111213,
-      studiengang: "MIB"
-    };
-    let p2: Student = { 
-      nameStudent: "Kevin",
-      matrikelnummer: 131415,
-      studiengang: "OMB"
-    };
-    let p3: Student = { 
-      nameStudent: "Bob",
-      matrikelnummer: 171819,
-      studiengang: "MKB"
-    };
-  
-    let p: Array<Student> = [
-      {"nameStudent": "Jason", "matrikelnummer": 111213, "studiengang": "MIB"},
-      {"nameStudent": "Nicole", "matrikelnummer": 131415, "studiengang": "OMB"},
-      {"nameStudent": "Aydin", "matrikelnummer": 171819, "studiengang": "MKB"}
-    ];
-  
-    p = []; 
-  
-    p.push(p1, p2, p3);
-  
-    function addStudent(nameStudent: string, matrikelnummer: number, studiengang: string): void {
-      let p4: Student = { nameStudent, matrikelnummer, studiengang };
-      p.push(p4);
-  }
-  
-    addStudent("Mina", 232425, "MKB");
-    showInfo(232425);
-  
-    function showInfo(matrikelnummer: number): boolean {
-      for (let i: number = 0; i < p.length; i++) {
-          if (matrikelnummer == p[i].matrikelnummer) { 
-              console.log(p[i].nameStudent, p[i].matrikelnummer, p[i].studiengang);
-              return true;
-          }
-      }
-      console.log("student not found");
-      return false;
-  }
-  
-  
-    addStudent("Paul", 910111, "OMB");
-    showInfo(910111);
-    showInfo(111213);
-    showInfo(131415);
-    showInfo(171819);
-    
-    // Aufgabe 2
-    //a)
-    const array = ["one", "two", "three"];
-    console.log("array:", array);
-    
-    const reversed = array.reverse();
-    console.log("reversed:", reversed);
+
+    showInfo(): void {
+
+        console.log("Name: " +  this.firstName + " " + this.lastName + "\nStudiensemester: " + this.semester + "\nMatrikelnummer: " + this.matrikelnummer);
+    }
+}
+
+let s1: Student = new Student("Litterst", "Daniel", 2, 265709);
+let s2: Student = new Student("Potter", "Harry", 8, 778878);
+let s3: Student = new Student("Poppins", "Mary", 4, 269530);
+
+let uniStudents: Student[] = [s1, s2, s3];
+uniStudents.push(new Student("Gonzalez", "Speedy", 1, 261231));
+
+console.log("Der neueste Student ist " + uniStudents[3].firstName + " " + uniStudents[3].lastName + ".");
+console.log("Es sind " + uniStudents.length + " Studenten im Moment eingeschrieben");
+console.log("Der dritte Student ist im " + uniStudents[2].semester + ". Semester an der Hochschule");
+
+console.log("Die Matrikelnummer des ersten Studenten lautet: " + uniStudents[0].matrikelnummer + ".");
+for (let i: number = 0; i < uniStudents.length; i++) {
+    uniStudents[i].showInfo();
+}
     
  
-    
-    //b)
-    const elements = ["Alexa", "Licht an!"];
-    
-    console.log(elements.join());
-    
-    //c)
-    const str = "Brautkleid bleibt Brautkleid und Blaukraut bleibt Blaukraut.";
-    
-    const word = str.split(" ");
-    console.log(word[3]);
+//Aufgabe 2
+//a) und b)
+function backwards(_givenArray: number[]): number[] {
+    let backwArray: number[] = new Array;
+    for (let i: number = _givenArray.length - 1; i >= 0; i--) {
+        backwArray.push(_givenArray[i]);
+    }
+    return backwArray;
+}
 
-    
-    const chars = str.split("");
-    console.log(chars[8]);
+let array: number[] = [5, 42, 17, 2018, -10, 60, -10010];
+let arrBack: number[] = backwards(array);
+console.log(array);
+console.log(arrBack);
 
-    
-    const strCopy = str.split(" ");
-    console.log(strCopy);
+function join(_firstArray: number[], _manyMoreArray: number[]): number[] {
+    _firstArray.push(..._manyMoreArray);
+    return _firstArray;
+}
+
+console.log(join(array, [15, 9001, -440]));
+
+
+
+//c)
+function split(_arrToSplit: number[], _index1: number, _index2: number): number[] {
+    let splitArray: number[] = new Array;
+    if (_index1 > _index2) {
+        for (let i: number = _index1; i >= _index2; i--) {
+            splitArray.push(_arrToSplit[i]);
+        }
+    }
+
+    if (_index1 < 0) {
+        _index1 = 0;
+        for (let i: number = _index1; i <= _index2; i++) {
+            splitArray.push(_arrToSplit[i]);
+        }
+    }
+
+    if (_index2 > _arrToSplit.length - 1) {
+        _index2 = _arrToSplit.length - 1;
+        for (let i: number = _index1; i <= _index2; i++) {
+            splitArray.push(_arrToSplit[i]);
+        }
+    }
+
+    for (let i: number = _index1; i <= _index2; i++) {
+        splitArray.push(_arrToSplit[i]);
+    }
+
+    return splitArray;
+}
+
+console.log(array);
+console.log(split(array, 9, 3));
+console.log(split(array, 4, 1));    
+console.log(split(array, 3, 2));    
+console.log(split(array, 2, 3));    
+
+
 
   
-  
-    //Aufgabe 3
-    let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("firstone");
-    let context: CanvasRenderingContext2D = canvas.getContext("2d");
-  
-    context.fillStyle = "lightblue";
-    context.fillRect(0, 0, 500, 400);
-    context.fillStyle = "green"; 
-    context.fillRect(0, 250, 500, 200);
-  
-    context.beginPath();    
-    context.fillStyle = "white";
-    context.arc(80, 100, 40, 0, Math.PI * 2);
-    context.fill();
-    
-    context.beginPath();   
-    context.fillStyle = "white";
-    context.arc(40, 110, 35, 0, Math.PI * 2);
-    context.fill();
-    
-    context.beginPath();   
-    context.fillStyle = "white";
-    context.arc(50, 80, 40, 0, Math.PI * 2);
-    context.fill();
-        
-    context.beginPath();    
-    context.fillStyle = "white";
-    context.fill();
-  
-    context.arc(55, 60, 25, 0, Math.PI * 2);
-    context.beginPath();   
-    context.lineWidth = 2.5;
-    context.fillStyle = "brown";
-    context.moveTo(170, 210);
-    context.lineTo(150, 300);
-    context.lineTo(210, 300);
-    context.lineTo(190, 210);
-    context.lineTo(170, 210);
-    context.stroke();
-    context.fill();
-    
-    context.beginPath();    
-    context.lineWidth = 1;
-    context.strokeStyle = "black";
-    context.fillStyle = "green";
-    context.arc(160, 210, 30, 0, Math.PI * 2);
-    context.fill();
-    context.stroke();
-    
-    context.beginPath();    
-    context.lineWidth = 1;
-    context.strokeStyle = "black";
-    context.fillStyle = "green";
-    context.arc(180, 180, 30, 0, Math.PI * 2);
-    context.fill();
-    context.stroke();
-    
-    context.beginPath();  
-    context.lineWidth = 1;
-    context.strokeStyle = "black";
-    context.fillStyle = "green";
-    context.arc(200, 210, 30, 0, Math.PI * 2);
-    context.fill();
-    context.stroke();
-    
+//Aufgabe 3
+let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById("myFirstCanvas");
+let context: CanvasRenderingContext2D = canvas.getContext("2d");
 
-    context.lineWidth = 0.5;
-    context.fillStyle = "yellow";
-    context.fillRect(305, 140, 150, 110);
-    context.fillStyle = "blue";
-    context.fillRect(330, 190, 40, 60);
-    context.fillRect(400, 150, 30, 30);
-    
-    context.beginPath();    
-    context.fillStyle = "red";
-    context.moveTo(280, 140);
-    context.lineTo(380, 60);
-    context.lineTo(480, 140);
-    context.closePath();
-    context.fill();
-    context.stroke();
-    
-    console.log(canvas);
-  
-  
-    interface Rectangle {
-      fillRect(x: number, y: number, w: number, h: number): void;
-      strokeRect(x: number, y: number, w: number, h: number): void;
-  }
-    function getRandom(max: number): number {
-      return Math.floor(Math.random() * max);
-  }
-  
-    function createRect(): void {
-      let x: number = getRandom(500);
-      let w: number = getRandom(500);
-      let y: number = getRandom(400);
-      let h: number = getRandom(400);
-      context.fillRect(x, y, w, h);
-  }
-    createRect();
-  
-    class Rectangle {
-      width: number;
-      height: number;
-  
-  createRectangle(_width: number, _height: number): void {
-      this.width = _width;
-      this.height = _height;
-  }
-  createRandomRec(): void {
-      this.width = Math.floor(Math.random() * 100);
-      this.height = Math.floor(Math.random() * 100);
-  }
-  drawRectangle(x: number, y: number, fill: boolean, color?: string): void {
-      let c: string = "yellow";
-      context.beginPath();
-      context.rect(x, y, this.width, this.height);
+context.fillStyle = "lightblue";
+context.fillRect(0, 0, 500, 400);
+context.fillStyle = "green"; 
+context.fillRect(0, 250, 500, 200);
 
-      if (color) {
-          context.fillStyle = color;
-          context.strokeStyle = color;
-      } else {
-          context.fillStyle = c;
-          context.strokeStyle = c;
-      }
+context.beginPath();    
+context.fillStyle = "white";
+context.arc(80, 100, 40, 0, Math.PI * 2);
+context.fill();
 
-      if (fill) {
-          context.fill();
-      }
-      context.stroke();
-      }
-  
-  drawRandom(): void {
-      let x: number = Math.floor(Math.random() * 500);
-      let y: number = Math.floor(Math.random() * 500);
-      context.beginPath();
-      context.rect(x, y, this.width, this.height);
-      context.fillStyle = "grey";
-      context.strokeStyle = "red";
-      context.fill();
-      context.stroke();
-      }
-  }
-  
-    const r: Rectangle = new Rectangle();
-    r.createRectangle(300, 300);
-    r.drawRectangle(300, 650, true);
-  
-  
-    const r1: Rectangle = new Rectangle();
-    r1.createRandomRec();
-    r1.drawRectangle(250, 650, false);
-  
-  
-    const r2: Rectangle = new Rectangle();
-    r2.createRandomRec();
-    r2.drawRectangle(500, 750, true, "blue");
-  
-  
-    const r3: Rectangle = new Rectangle();
-    r3.createRandomRec();
-    const r4: Rectangle = new Rectangle();
-    r4.createRandomRec();
-    const r5: Rectangle = new Rectangle();
-    r5.createRandomRec();
-  
-    let rectangles: Array<Rectangle> = new Array();
-    rectangles = [r3, r4, r5];
-    rectangles.forEach(rec => rec.drawRandom());
+context.beginPath();   
+context.fillStyle = "white";
+context.arc(40, 110, 35, 0, Math.PI * 2);
+context.fill();
+
+context.beginPath();   
+context.fillStyle = "white";
+context.arc(50, 80, 40, 0, Math.PI * 2);
+context.fill();
     
+context.beginPath();    
+context.fillStyle = "white";
+context.fill();
+
+context.arc(55, 60, 25, 0, Math.PI * 2);
+context.beginPath();   
+context.lineWidth = 2.5;
+context.fillStyle = "brown";
+context.moveTo(170, 210);
+context.lineTo(150, 300);
+context.lineTo(210, 300);
+context.lineTo(190, 210);
+context.lineTo(170, 210);
+context.stroke();
+context.fill();
+
+context.beginPath();    
+context.lineWidth = 1;
+context.strokeStyle = "black";
+context.fillStyle = "green";
+context.arc(160, 210, 30, 0, Math.PI * 2);
+context.fill();
+context.stroke();
+
+context.beginPath();    
+context.lineWidth = 1;
+context.strokeStyle = "black";
+context.fillStyle = "green";
+context.arc(180, 180, 30, 0, Math.PI * 2);
+context.fill();
+context.stroke();
+
+context.beginPath();  
+context.lineWidth = 1;
+context.strokeStyle = "black";
+context.fillStyle = "green";
+context.arc(200, 210, 30, 0, Math.PI * 2);
+context.fill();
+context.stroke();
+
+
+context.lineWidth = 0.5;
+context.fillStyle = "yellow";
+context.fillRect(305, 140, 150, 110);
+context.fillStyle = "blue";
+context.fillRect(330, 190, 40, 60);
+context.fillRect(400, 150, 30, 30);
+
+context.beginPath();    
+context.fillStyle = "red";
+context.moveTo(280, 140);
+context.lineTo(380, 60);
+context.lineTo(480, 140);
+context.closePath();
+context.fill();
+context.stroke();
+
+
+
+
+
+let cnvs: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("my2ndCanvas");
+let cntxt: CanvasRenderingContext2D = cnvs.getContext("2d");
+
+class Rectangular {
+    xPos: number;
+    yPos: number;
+    width: number;
+    height: number;
+
+    constructor() { 
+        this.xPos = Math.floor(Math.random() * 490);
+        this.yPos = Math.floor(Math.random() * 390);
+        this.width = Math.floor(Math.random() * 200) + 1;
+        this.height = Math.floor(Math.random() * 200) + 1;
+    }
+
+    drawRect(): void {
+        cntxt.fillStyle = "black";
+        cntxt.fillRect(this.xPos, this.yPos, this.width, this.height);
+    }
+}
+
+let rect1: Rectangular = new Rectangular();
+rect1.drawRect();
+
+let rect2: Rectangular = new Rectangular();
+let rect3: Rectangular = new Rectangular();
+let rect4: Rectangular = new Rectangular();
+let rectArr: Rectangular[] = [rect2, rect3, rect4]; 
+for (let i: number = 0; i < rectArr.length; i++) {
+    rectArr[i].drawRect(); 
+}

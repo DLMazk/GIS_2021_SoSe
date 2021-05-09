@@ -226,6 +226,7 @@ context.stroke();
 
 
 
+
 let cnvs: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById("my2ndCanvas");
 let cntxt: CanvasRenderingContext2D = cnvs.getContext("2d");
 

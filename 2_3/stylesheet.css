@@ -7,7 +7,23 @@ body{
 
 .choices {
 
-    margin: 15px;
+    margin-left: 20px;
 
 }
 
+#einrück {
+    
+    margin-left: 5px;
+}
+
+img {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+cite {
+    float: left;
+    margin-left: 90px;
+    margin-top: 175px;
+
+}

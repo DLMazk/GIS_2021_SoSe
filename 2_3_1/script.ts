@@ -67,7 +67,7 @@
     interface Eis {
 
         größe: WaffelGröße;
-        sorte: Sorte;
+        sorte: Sorte;   
         preis: number;    
 
     }

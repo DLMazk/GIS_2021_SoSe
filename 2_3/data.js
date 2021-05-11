@@ -2,14 +2,20 @@
 var Aufgabe2_3;
 (function (Aufgabe2_3) {
     Aufgabe2_3.wahlGröße = [
-        { größe: "groß", image: "EiswaffelKlein", dateiName: "Media/Eiswaffel_klein.PNG" },
-        { größe: "klein", image: "EiswaffelNormal", dateiName: "Media/Eiswaffel_normal.PNG" },
-        { größe: "normal", image: "EiswaffelGroß", dateiName: "Media/Eiswaffel_groß.PNG" }
+        { größe: "groß", imageID: "EiswaffelKlein", dateiName: "Media/Eiswaffel_klein.PNG" },
+        { größe: "klein", imageID: "EiswaffelNormal", dateiName: "Media/Eiswaffel_normal.PNG" },
+        { größe: "normal", imageID: "EiswaffelGroß", dateiName: "Media/Eiswaffel_groß.PNG" }
     ];
-    let wahlSorte = [
-        { geschmack: "Erdbeere", preis: 1 },
-        { geschmack: "Schokolade", preis: 1 },
-        { geschmack: "Vanille", preis: 1 }
+    Aufgabe2_3.wahlSorte = [
+        { geschmack: "Erdbeere", imageID: "Erdbeere", dateiName: "Media/Erdbeere.jpg" },
+        { geschmack: "Schokolade", imageID: "Schokolade", dateiName: "Media/Schokolade.jpg" },
+        { geschmack: "Vanille", imageID: "Vanille", dateiName: "Media/Vanille.jpg" },
+        { geschmack: "Zitrone", imageID: "Zirtone", dateiName: "Media/Zitrone.jpg" }
+    ];
+    Aufgabe2_3.wahlTop = [
+        { top: "Nichts", imageID: "keineWahl", dateiName: "Media/keineWahl" },
+        { top: "Schokostreusel", imageID: "Schokostreusel", dateiName: "Media/SchokoStreusel.jpg" },
+        { top: "Mandelstreusel", imageID: "Mandel", dateiName: "Media/MandelStreusel.jpg" }
     ];
 })(Aufgabe2_3 || (Aufgabe2_3 = {}));
 //# sourceMappingURL=data.js.map

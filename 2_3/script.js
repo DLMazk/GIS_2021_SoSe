@@ -6,52 +6,25 @@ var Aufgabe2_3;
     let h3 = document.createElement("h3");
     h3.style.margin = "10px";
     document.body.appendChild(h3);
-    //Button kleine Waffel
-    let buttK = document.createElement("button");
-    buttK.style.marginTop = "15px";
-    buttK.style.marginLeft = "60px";
-    buttK.innerText = "Kleine Waffel";
-    document.body.appendChild(buttK);
-    buttK.addEventListener("click", openingK);
-    //Button normale Waffel
-    let buttN = document.createElement("button");
-    buttN.style.marginTop = "15px";
-    buttN.style.marginLeft = "120px";
-    buttN.innerText = "Normale Waffel";
-    document.body.appendChild(buttN);
-    buttN.addEventListener("click", openingN);
-    //Button große Waffel
-    let buttG = document.createElement("button");
-    buttG.style.marginTop = "15px";
-    buttG.style.marginLeft = "120px";
-    buttG.innerText = "Große Waffel";
-    document.body.appendChild(buttG);
-    buttG.addEventListener("click", openingG);
-    let zeile = document.createElement("br");
-    document.body.appendChild(zeile);
-    //Nächste Seite öffnen - kleine Waffel
-    function openingK() {
-        window.open("Sorten.html", "_self");
-        console.log("kleine Waffel ausgewählt");
+    function openNextSite() {
+        if (window.location.href.includes("index.html")) {
+            window.open("Sorten.html", "_self");
+        }
     }
-    //Nächste Seite öffnen - normale Waffel
-    function openingN() {
-        window.open("Sorten.html", "_self");
-        console.log("normale Waffel ausgewählt");
+    function waehlen() {
+        let art = Aufgabe2_3.wahlGröße;
+        if (window.location.href.includes("Sorten.html")) {
+            art = Aufgabe2_3.wahlSorte;
+        }
+        if (window.location.href.includes("Topping.html")) {
+            art = Aufgabe2_3.wahlTop;
+        }
+        return art;
     }
-    //Nächste Seite öffnen - große Waffel
-    function openingG() {
-        window.open("Sorten.html", "_self");
-        console.log("große Waffel ausgewählt");
-    }
-    //aktuelle Seite überprüfen und WaffelAuswahl ausführen
-    let aSeite = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
-    if (aSeite == "index.html") {
-        WaffelAuswahl();
-    }
-    //Waffel Auswahl
-    function WaffelAuswahl() {
-        for (let i = 0; i < Aufgabe2_3.wahlGröße.length; i++) {
+    //Waffel auswaehlen
+    function auswaehlen() {
+        const gewaehltes = waehlen();
+        for (let i = 0; i < gewaehltes.length; i++) {
             let posLeft = "";
             let posTop = "";
             posLeft = (i * 200) + "px";
@@ -63,11 +36,12 @@ var Aufgabe2_3;
             img.style.margin = "10px";
             img.style.height = 200 + "px";
             img.style.width = 200 + "px";
-            img.setAttribute("src", Aufgabe2_3.wahlGröße[i].dateiName);
-            //img.addEventListener("click", opening); //
-            img.id = Aufgabe2_3.wahlGröße[i].imageID; //ID des Bildes festlegen
+            img.setAttribute("src", gewaehltes[i].dateiName);
+            img.addEventListener("click", openNextSite);
+            img.id = gewaehltes[i].imageID; //ID des Bildes festlegen
             previousElement.appendChild(img);
         }
     }
+    auswaehlen();
 })(Aufgabe2_3 || (Aufgabe2_3 = {}));
 //# sourceMappingURL=script.js.map

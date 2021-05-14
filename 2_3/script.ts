@@ -1,6 +1,6 @@
 namespace Aufgabe2_3 {
 
-    interface Eis {
+/*    interface Eis {
 
         größe: WaffelGröße;
         sorte: Sorte;
@@ -13,7 +13,7 @@ namespace Aufgabe2_3 {
         imageID: string;
         dateiName: string;
 
-    }  
+    } 
 
     export interface Sorte {
 
@@ -29,9 +29,16 @@ namespace Aufgabe2_3 {
         imageID: string;
         dateiName: string;
 
-    }   
+    }  
+*/
+//New Interface:
+    export interface Eis {
 
-    
+        option: string;
+        imageID: string;
+        dateiName: string;
+
+    }
 
 
     let previousElement: HTMLElement = document.body;
@@ -42,65 +49,37 @@ namespace Aufgabe2_3 {
     document.body.appendChild(h3);
 
 
+    function openNextSite(): void {
 
-    //Button kleine Waffel
-    let buttK: HTMLElement = document.createElement("button");
-    buttK.style.marginTop = "15px";
-    buttK.style.marginLeft = "60px";
-    buttK.innerText = "Kleine Waffel";
-    document.body.appendChild(buttK);
-    buttK.addEventListener("click", openingK);
+        if (window.location.href.includes("index.html")) {
 
-    //Button normale Waffel
-    let buttN: HTMLElement = document.createElement("button");
-    buttN.style.marginTop = "15px";
-    buttN.style.marginLeft = "120px";
-    buttN.innerText = "Normale Waffel";
-    document.body.appendChild(buttN);
-    buttN.addEventListener("click", openingN);
+            window.open("Sorten.html", "_self");
 
-    //Button große Waffel
-    let buttG: HTMLElement = document.createElement("button");
-    buttG.style.marginTop = "15px";
-    buttG.style.marginLeft = "120px";
-    buttG.innerText = "Große Waffel";
-    document.body.appendChild(buttG);
-    buttG.addEventListener("click", openingG);
-
-    let zeile: HTMLElement = document.createElement("br");
-    document.body.appendChild(zeile);
-
-
-    //Nächste Seite öffnen - kleine Waffel
-    function openingK(): void {
-        window.open("Sorten.html", "_self");
-        console.log("kleine Waffel ausgewählt");
-    }
-    //Nächste Seite öffnen - normale Waffel
-    function openingN(): void {
-        window.open("Sorten.html", "_self");
-        console.log("normale Waffel ausgewählt");
-    }
-    //Nächste Seite öffnen - große Waffel
-    function openingG(): void {
-        window.open("Sorten.html", "_self");
-        console.log("große Waffel ausgewählt");
+        }
     }
 
+    function waehlen(): Eis[] {
+    let art: Eis[] = wahlGröße;
 
+    if (window.location.href.includes("Sorten.html")) {
 
-   //aktuelle Seite überprüfen und WaffelAuswahl ausführen
-    let aSeite: string = window.location.pathname.substring(window.location.pathname.lastIndexOf("/") + 1);
-    if (aSeite == "index.html") {
-        WaffelAuswahl();
+        art = wahlSorte; 
+
     }
+    if (window.location.href.includes("Topping.html")) {
+
+        art = wahlTop;
+
+    }
+    return art;
+}
 
 
-
-    //Waffel Auswahl
-    function WaffelAuswahl(): void {
-
-        for (let i: number = 0; i < wahlGröße.length; i++) {
+    //Waffel auswaehlen
+    function auswaehlen(): void {
+        const gewaehltes: Eis[] = waehlen
+();
+        for (let i: number = 0; i < gewaehltes.length; i++) {
 
             let posLeft: string = "";
             let posTop: string = "";
@@ -114,12 +93,13 @@ namespace Aufgabe2_3 {
             img.style.margin = "10px";
             img.style.height = 200 + "px";
             img.style.width = 200 + "px";
-            img.setAttribute("src", wahlGröße[i].dateiName);
-            //img.addEventListener("click", opening); //
+            img.setAttribute("src", gewaehltes[i].dateiName);
+            img.addEventListener("click", openNextSite); 
 
-            img.id = wahlGröße[i].imageID; //ID des Bildes festlegen
+            img.id = gewaehltes[i].imageID; //ID des Bildes festlegen
             previousElement.appendChild(img);
         }
         
     }   
+    auswaehlen();
 }

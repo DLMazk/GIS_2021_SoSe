@@ -1,21 +1,14 @@
 namespace Aufgabe2_4 {
 
-       interface Eis {
+       export interface Eis {
 
-        größe: WaffelGröße;
-        sorte: Sorte;
-        topping: Topping;
+        wahlGröße: EisWahl[];
+        wahlSorte: EisWahl[];
+        wahlTop: EisWahl[];
 
     }
-       export interface WaffelGröße {
 
-        option: string;
-        imageID: string;
-        dateiName: string;
-
-    } 
-
-       export interface Sorte {
+       export interface EisWahl {
 
         option: string;
         imageID: string;
@@ -23,25 +16,8 @@ namespace Aufgabe2_4 {
 
     }
 
-       export interface Topping {
 
-        option: string;
-        imageID: string;
-        dateiName: string;
-
-    }  
-
-/*
-//New Interface:
-    export interface Eis {
-
-        option: string;
-        imageID: string;
-        dateiName: string;
-
-    }
-*/
-       let myObj: Eis[] = JSON.parse(myJSON);
+       let myObj: Eis = JSON.parse(myJSON);
 
     
 
@@ -83,7 +59,7 @@ namespace Aufgabe2_4 {
 
     //Waffel auswaehlen
        function auswaehlen(): void {
-        const gewaehltes: Eis[] = waehlen();
+        const gewaehltes: EisWahl[] = waehlen();
         for (let i: number = 0; i < gewaehltes.length; i++) {
 
             let posLeft: string = "";

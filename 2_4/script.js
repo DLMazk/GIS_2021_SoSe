@@ -1,16 +1,6 @@
 "use strict";
 var Aufgabe2_4;
 (function (Aufgabe2_4) {
-    /*
-    //New Interface:
-        export interface Eis {
-    
-            option: string;
-            imageID: string;
-            dateiName: string;
-    
-        }
-    */
     let myObj = JSON.parse(Aufgabe2_4.myJSON);
     let previousElement = document.body;
     //Sorten wählen Anweisung

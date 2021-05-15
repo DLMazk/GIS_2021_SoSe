@@ -18,4 +18,7 @@ export let wahlTop: Eis[] = [
     {option: "Schokostreusel", imageID: "Schokostreusel", dateiName: "Media/SchokoStreusel.jpg"},
     {option: "Mandelstreusel", imageID: "Mandel", dateiName: "Media/MandelStreusel.jpg"}
 ];
+
+
+
 }

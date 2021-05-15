@@ -1,6 +1,7 @@
 "use strict";
-var Aufgabe2_3;
-(function (Aufgabe2_3) {
+var Aufgabe2_4;
+(function (Aufgabe2_4) {
+    let myObj = JSON.parse(Aufgabe2_4.myJSON);
     let previousElement = document.body;
     //Sorten wählen Anweisung
     let h3 = document.createElement("h3");
@@ -12,11 +13,11 @@ var Aufgabe2_3;
         }
     }
     function waehlen() {
-        let art = Aufgabe2_3.wahlGröße;
+        let art = wahlGröße;
         if (window.location.href.includes("Sorten.html"))
-            art = Aufgabe2_3.wahlSorte;
+            art = wahlSorte;
         if (window.location.href.includes("Topping.html"))
-            art = Aufgabe2_3.wahlTop;
+            art = wahlTop;
         return art;
     }
     //Waffel auswaehlen
@@ -41,5 +42,5 @@ var Aufgabe2_3;
         }
     }
     auswaehlen();
-})(Aufgabe2_3 || (Aufgabe2_3 = {}));
+})(Aufgabe2_4 || (Aufgabe2_4 = {}));
 //# sourceMappingURL=script.js.map

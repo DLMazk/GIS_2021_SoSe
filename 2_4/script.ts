@@ -1,4 +1,4 @@
-namespace Aufgabe2_3 {
+namespace Aufgabe2_4 {
 
 /*    interface Eis {
 
@@ -40,7 +40,12 @@ namespace Aufgabe2_3 {
 
     }
 
-       
+    
+
+
+    let myObj: Eis[] = JSON.parse(myJSON);
+
+    
 
     let previousElement: HTMLElement = document.body;
 

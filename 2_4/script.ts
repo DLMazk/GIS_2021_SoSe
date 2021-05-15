@@ -16,11 +16,6 @@ namespace Aufgabe2_4 {
 
     }
 
-
-       let myObj: Eis = JSON.parse(myJSON);
-
-    
-
        let previousElement: HTMLElement = document.body;
 
     //Sorten wählen Anweisung
@@ -44,14 +39,14 @@ namespace Aufgabe2_4 {
 
     }
 
-       function waehlen(): Eis[] {
-    let art: Eis[] = wahlGröße;
+       function waehlen(): EisWahl[] {
+    let art: EisWahl[] = myObj.wahlGröße;
 
     if (window.location.href.includes("Sorten.html"))
-        art = wahlSorte; 
+        art = myObj.wahlSorte;
     
     if (window.location.href.includes("Topping.html")) 
-        art = wahlTop;
+        art = myObj.wahlTop;
     
     return art;
 }

@@ -66,8 +66,7 @@ var Aufgabe2_4;
         "imageID": "Mandel",
         "dateiName": "Media/MandelStreusel.jpg"}
     ]
-    };
-    `;
+    }`;
     Aufgabe2_4.myObj = JSON.parse(Aufgabe2_4.myJSON);
 })(Aufgabe2_4 || (Aufgabe2_4 = {}));
 //# sourceMappingURL=data.js.map

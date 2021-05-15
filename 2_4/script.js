@@ -1,7 +1,6 @@
 "use strict";
 var Aufgabe2_4;
 (function (Aufgabe2_4) {
-    let myObj = JSON.parse(Aufgabe2_4.myJSON);
     let previousElement = document.body;
     //Sorten wählen Anweisung
     let h3 = document.createElement("h3");
@@ -16,11 +15,11 @@ var Aufgabe2_4;
         }
     }
     function waehlen() {
-        let art = wahlGröße;
+        let art = Aufgabe2_4.myObj.wahlGröße;
         if (window.location.href.includes("Sorten.html"))
-            art = wahlSorte;
+            art = Aufgabe2_4.myObj.wahlSorte;
         if (window.location.href.includes("Topping.html"))
-            art = wahlTop;
+            art = Aufgabe2_4.myObj.wahlTop;
         return art;
     }
     //Waffel auswaehlen

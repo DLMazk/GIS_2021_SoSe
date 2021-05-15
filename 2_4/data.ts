@@ -66,8 +66,7 @@ export let myJSON: string =
         "imageID": "Mandel",
         "dateiName": "Media/MandelStreusel.jpg"}
     ]
-    };
-    `;
+    }`;
     
 export let myObj: Eis = JSON.parse(myJSON);
 

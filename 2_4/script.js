@@ -1,6 +1,16 @@
 "use strict";
 var Aufgabe2_4;
 (function (Aufgabe2_4) {
+    /*
+    //New Interface:
+        export interface Eis {
+    
+            option: string;
+            imageID: string;
+            dateiName: string;
+    
+        }
+    */
     let myObj = JSON.parse(Aufgabe2_4.myJSON);
     let previousElement = document.body;
     //Sorten wählen Anweisung
@@ -10,6 +20,9 @@ var Aufgabe2_4;
     function openNextSite() {
         if (window.location.href.includes("index.html")) {
             window.open("Sorten.html", "_self");
+        }
+        if (window.location.href.includes("Sorten.html")) {
+            window.open("Topping.html");
         }
     }
     function waehlen() {
@@ -37,6 +50,7 @@ var Aufgabe2_4;
             img.style.width = 200 + "px";
             img.setAttribute("src", gewaehltes[i].dateiName);
             img.addEventListener("click", openNextSite);
+            sessionStorage.setItem("click", "wasser");
             img.id = gewaehltes[i].imageID; //ID des Bildes festlegen
             previousElement.appendChild(img);
         }

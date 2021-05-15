@@ -1,5 +1,5 @@
 //Aufgabe 1
-
+namespace Aufgabe2_3_1 {
     //Überschrift
     let headline: HTMLHeadElement = document.createElement("h1");
     headline.innerText = "Neuer Tag neues Rechteck";
@@ -86,4 +86,4 @@
     }
 
     
-
+}

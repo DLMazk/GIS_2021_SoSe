@@ -1,36 +1,37 @@
 namespace Aufgabe2_4 {
 
-/*    interface Eis {
+       interface Eis {
 
         größe: WaffelGröße;
         sorte: Sorte;
         topping: Topping;
 
     }
-    export interface WaffelGröße {
+       export interface WaffelGröße {
 
-        größe: string;
+        option: string;
         imageID: string;
         dateiName: string;
 
     } 
 
-    export interface Sorte {
+       export interface Sorte {
 
-        geschmack: string;
+        option: string;
         imageID: string;
         dateiName: string;
 
     }
 
-    export interface Topping {
+       export interface Topping {
 
-        top: string;
+        option: string;
         imageID: string;
         dateiName: string;
 
     }  
-*/
+
+/*
 //New Interface:
     export interface Eis {
 
@@ -39,32 +40,35 @@ namespace Aufgabe2_4 {
         dateiName: string;
 
     }
+*/
+       let myObj: Eis[] = JSON.parse(myJSON);
 
     
 
-
-    let myObj: Eis[] = JSON.parse(myJSON);
-
-    
-
-    let previousElement: HTMLElement = document.body;
+       let previousElement: HTMLElement = document.body;
 
     //Sorten wählen Anweisung
-    let h3: HTMLElement = document.createElement("h3");
-    h3.style.margin = "10px";
-    document.body.appendChild(h3);
+       let h3: HTMLElement = document.createElement("h3");
+       h3.style.margin = "10px";
+       document.body.appendChild(h3);
 
 
-    function openNextSite(): void {
+       function openNextSite(): void {
 
         if (window.location.href.includes("index.html")) {
 
             window.open("Sorten.html", "_self");
 
         }
+        if (window.location.href.includes("Sorten.html")) {
+
+            window.open("Topping.html");
+
+        }
+
     }
 
-    function waehlen(): Eis[] {
+       function waehlen(): Eis[] {
     let art: Eis[] = wahlGröße;
 
     if (window.location.href.includes("Sorten.html"))
@@ -78,7 +82,7 @@ namespace Aufgabe2_4 {
 
 
     //Waffel auswaehlen
-    function auswaehlen(): void {
+       function auswaehlen(): void {
         const gewaehltes: Eis[] = waehlen();
         for (let i: number = 0; i < gewaehltes.length; i++) {
 
@@ -96,14 +100,16 @@ namespace Aufgabe2_4 {
             img.style.width = 200 + "px";
             img.setAttribute("src", gewaehltes[i].dateiName);
             img.addEventListener("click", openNextSite); 
+            sessionStorage.setItem("click", "wasser");
 
             img.id = gewaehltes[i].imageID; //ID des Bildes festlegen
             previousElement.appendChild(img);
         }
         
     }   
-    auswaehlen();
+       auswaehlen();
 
+    
 
 
     }

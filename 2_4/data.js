@@ -56,15 +56,15 @@ var Aufgabe2_4;
     "wahlTop": [
         {"option": "Nichts",
         "imageID": "keineWahl",
-        "dateiName": "Media/keineWahl"},
+        "dateiName": "Media/Nichts.jpg"},
 
         {"option": "Schokostreusel",
         "imageID": "Schokostreusel",
-        "dateiName": "Media/SchokoStreusel.jpg"},
+        "dateiName": "Media/Schokostreusel.jpg"},
 
         {"option": "Mandelstreusel",
         "imageID": "Mandel",
-        "dateiName": "Media/MandelStreusel.jpg"}
+        "dateiName": "Media/_Mandelstreusel.jpg"}
     ]
     }`;
     Aufgabe2_4.myObj = JSON.parse(Aufgabe2_4.myJSON);

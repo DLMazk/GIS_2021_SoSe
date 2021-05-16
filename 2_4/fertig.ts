@@ -22,8 +22,8 @@ function abschließen(): void {
 
         fin.appendChild(img);
         
-    }
-    
+    }   
     }   
 abschließen();
+
 }

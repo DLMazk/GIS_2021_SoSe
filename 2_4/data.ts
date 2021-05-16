@@ -26,15 +26,15 @@ export let myJSON: string =
     "wahlGröße": [
         {"option": "groß", 
         "imageID": "EiswaffelKlein", 
-        "dateiName": "Media/Eiswaffel_klein.PNG"},
+        "dateiName": "Media/Eiswaffel_klein.jpg"},
 
         {"option": "klein", 
         "imageID": "EiswaffelNormal", 
-        "dateiName": "Media/Eiswaffel_normal.PNG"},
+        "dateiName": "Media/Eiswaffel_normal.jpg"},
 
         {"option": "normal", 
         "imageID": "EiswaffelGroß", 
-        "dateiName": "Media/Eiswaffel_groß.PNG"}],
+        "dateiName": "Media/Eiswaffel_groß.jpg"}],
 
     "wahlSorte": [
         {"option": "Erdbeere",
@@ -64,7 +64,7 @@ export let myJSON: string =
 
         {"option": "Mandelstreusel",
         "imageID": "Mandel",
-        "dateiName": "Media/_Mandelstreusel.jpg"}
+        "dateiName": "Media/Mandelstreusel.jpg"}
     ]
     }`;
     

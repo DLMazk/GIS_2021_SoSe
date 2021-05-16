@@ -26,15 +26,15 @@ var Aufgabe2_4;
     "wahlGröße": [
         {"option": "groß", 
         "imageID": "EiswaffelKlein", 
-        "dateiName": "Media/Eiswaffel_klein.PNG"},
+        "dateiName": "Media/Eiswaffel_klein.jpg"},
 
         {"option": "klein", 
         "imageID": "EiswaffelNormal", 
-        "dateiName": "Media/Eiswaffel_normal.PNG"},
+        "dateiName": "Media/Eiswaffel_normal.jpg"},
 
         {"option": "normal", 
         "imageID": "EiswaffelGroß", 
-        "dateiName": "Media/Eiswaffel_groß.PNG"}],
+        "dateiName": "Media/Eiswaffel_groß.jpg"}],
 
     "wahlSorte": [
         {"option": "Erdbeere",
@@ -64,7 +64,7 @@ var Aufgabe2_4;
 
         {"option": "Mandelstreusel",
         "imageID": "Mandel",
-        "dateiName": "Media/_Mandelstreusel.jpg"}
+        "dateiName": "Media/Mandelstreusel.jpg"}
     ]
     }`;
     Aufgabe2_4.myObj = JSON.parse(Aufgabe2_4.myJSON);

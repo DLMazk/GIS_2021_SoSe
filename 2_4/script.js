@@ -36,6 +36,7 @@ var Aufgabe2_4;
             sessionStorage.setItem("2", dateiName);
         }
     }
+    //aktuelle Auswahl
     function aktuell() {
         if (window.location.href.includes("Sorten.html")) {
             let aktuelldiv = document.getElementById("aktuell");
@@ -48,8 +49,8 @@ var Aufgabe2_4;
             img.style.left = posLeft;
             img.style.top = posTop;
             img.style.margin = "10px";
-            img.style.height = 200 + "px";
-            img.style.width = 200 + "px";
+            img.style.height = 150 + "px";
+            img.style.width = 150 + "px";
             img.setAttribute("src", sessionStorage.getItem("0"));
             aktuelldiv.appendChild(img);
         }
@@ -65,8 +66,8 @@ var Aufgabe2_4;
                 img.style.left = posLeft;
                 img.style.top = posTop;
                 img.style.margin = "10px";
-                img.style.height = 200 + "px";
-                img.style.width = 200 + "px";
+                img.style.height = 150 + "px";
+                img.style.width = 150 + "px";
                 img.setAttribute("src", sessionStorage.getItem(i.toString()));
                 aktuelldiv.appendChild(img);
             }

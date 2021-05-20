@@ -85,9 +85,7 @@ namespace Aufgabe2_4 {
             img.style.position = "static";
             img.style.left = posLeft;
             img.style.top = posTop;
-            img.style.margin = "10px";
-            img.style.height = 150 + "px";
-            img.style.width = 150 + "px";
+
             img.setAttribute("src", sessionStorage.getItem("0"));
         
             aktuelldiv.appendChild(img);
@@ -106,9 +104,7 @@ namespace Aufgabe2_4 {
             img.style.position = "static";
             img.style.left = posLeft;
             img.style.top = posTop;
-            img.style.margin = "10px";
-            img.style.height = 150 + "px";
-            img.style.width = 150 + "px";
+
             img.setAttribute("src", sessionStorage.getItem(i.toString()));
             
             aktuelldiv.appendChild(img);
@@ -134,9 +130,7 @@ namespace Aufgabe2_4 {
             img.style.position = "static";
             img.style.left = posLeft;
             img.style.top = posTop;
-            img.style.margin = "10px";
-            img.style.height = 200 + "px";
-            img.style.width = 200 + "px";
+
             img.setAttribute("src", gewaehltes[i].dateiName);
 
 

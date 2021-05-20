@@ -111,7 +111,7 @@ namespace Aufgabe2_4 {
             
             aktuelldiv.appendChild(img);
             }
-            }
+        }
     }
        aktuell();
 

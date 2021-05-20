@@ -1,0 +1,51 @@
+
+
+body{
+    
+    background-image: url("Media/bg.png");
+    font-family: 'Times New Roman', Times, serif;
+    width: 1000px;
+    margin: auto;
+    
+    
+}
+
+/* .choices {
+
+    margin-left: 20px;
+
+} 
+
+#einrück {
+    
+    margin-left: 5px;
+} */
+
+img {
+    margin-left: 10px;
+    margin-bottom: 10px;
+
+    width: auto;
+    height: auto;
+
+}
+
+#auswahl img,
+#fertig img {
+
+    transition: all 0.5s ease-in 0s;
+    transform: scale(1);
+
+}
+
+#auswahl img:hover,
+#fertig img:hover {
+
+    transform: scale(1.1);;
+
+}
+
+#textAktuell {
+    margin-top: 15px;
+}
+

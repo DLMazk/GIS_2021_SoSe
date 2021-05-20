@@ -1,4 +1,4 @@
-namespace Aufgabe2_4 {
+namespace Aufgabe2_5 {
 
        export interface Eis {
 

@@ -60,10 +60,11 @@ namespace Aufgabe2_5 {
 
         let ant: Response = await fetch(_url); //wartet darauf, dass die Seite geladen wird
         console.log("Antwort", ant);
+        let daten: EisWahl[] = await ant.json();
 
-
+        auswaehlen(daten);
     }
-
+       einlesen("https://dlmazk.github.io/GIS_2021_SoSe/2_5/data.json");
 
 
        function speichern(_dateiName: string): void {
@@ -129,9 +130,9 @@ namespace Aufgabe2_5 {
 
 
     //Waffel auswaehlen
-       function auswaehlen(): void {
-        const gewaehltes: EisWahl[] = waehlen();
-        for (let i: number = 0; i < gewaehltes.length; i++) {
+       function auswaehlen(_gewaehltes: EisWahl[]): void {
+        //const gewaehltes: EisWahl[] = waehlen();
+        for (let i: number = 0; i < _gewaehltes.length; i++) {
 
             let posLeft: string = "";
             let posTop: string = "";
@@ -143,19 +144,19 @@ namespace Aufgabe2_5 {
             img.style.left = posLeft;
             img.style.top = posTop;
 
-            img.setAttribute("src", gewaehltes[i].dateiName);
+            img.setAttribute("src", _gewaehltes[i].dateiName);
 
 
-            img.addEventListener("click", function (): void {speichern(gewaehltes[i].dateiName); }); 
+            img.addEventListener("click", function (): void {speichern(_gewaehltes[i].dateiName); }); 
             img.addEventListener("click", openNextSite); 
 
 
-            img.id = gewaehltes[i].imageID; //ID des Bildes festlegen
+            img.id = _gewaehltes[i].imageID; //ID des Bildes festlegen
             previousElement.appendChild(img);
             
         }
     }   
-       auswaehlen();
+       
 
 
 }

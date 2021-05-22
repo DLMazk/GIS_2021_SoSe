@@ -61,10 +61,11 @@ namespace Aufgabe2_5 {
         let ant: Response = await fetch(_url); //wartet darauf, dass die Seite geladen wird
         console.log("Antwort", ant);
         let daten: EisWahl[] = await ant.json();
-
         auswaehlen(daten);
-    }
+        }
+    
        einlesen("https://dlmazk.github.io/GIS_2021_SoSe/2_5/data.json");
+
 
 
        function speichern(_dateiName: string): void {
@@ -87,39 +88,19 @@ namespace Aufgabe2_5 {
         if (window.location.href.includes("Sorten.html")) {
             let aktuelldiv: HTMLElement = document.getElementById("aktuell");
             
-
-            let posLeft: string = "";
-            let posTop: string = "";
-            posLeft = (0 * 200) + "px";
-            posTop = 100 + "px";
-
             let img: HTMLElement = document.createElement("img");
-            img.style.position = "static";
-            img.style.left = posLeft;
-            img.style.top = posTop;
-
-            img.setAttribute("src", sessionStorage.getItem("0"));
-        
+            img.setAttribute("src", sessionStorage.getItem("0"));      
             aktuelldiv.appendChild(img);
             }
 
-            //wenn bei "Topping"
+        //wenn bei "Topping"
         if (window.location.href.includes("Topping.html")) {
             let aktuelldiv: HTMLElement = document.getElementById("aktuell");
                 
             for (let i: number = 0; i < 2; i++) {
-            let posLeft: string = "";
-            let posTop: string = "";
-            posLeft = (i * 200) + "px";
-            posTop = 100 + "px";
     
             let img: HTMLElement = document.createElement("img");
-            img.style.position = "static";
-            img.style.left = posLeft;
-            img.style.top = posTop;
-
             img.setAttribute("src", sessionStorage.getItem(i.toString()));
-            
             aktuelldiv.appendChild(img);
             }
             }
@@ -134,22 +115,11 @@ namespace Aufgabe2_5 {
         //const gewaehltes: EisWahl[] = waehlen();
         for (let i: number = 0; i < _gewaehltes.length; i++) {
 
-            let posLeft: string = "";
-            let posTop: string = "";
-            posLeft = (i * 200) + "px";
-            posTop = 100 + "px";
-
             let img: HTMLElement = document.createElement("img");
-            img.style.position = "static";
-            img.style.left = posLeft;
-            img.style.top = posTop;
-
             img.setAttribute("src", _gewaehltes[i].dateiName);
-
 
             img.addEventListener("click", function (): void {speichern(_gewaehltes[i].dateiName); }); 
             img.addEventListener("click", openNextSite); 
-
 
             img.id = _gewaehltes[i].imageID; //ID des Bildes festlegen
             previousElement.appendChild(img);

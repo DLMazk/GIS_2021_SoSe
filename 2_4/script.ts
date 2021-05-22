@@ -77,18 +77,8 @@ namespace Aufgabe2_4 {
             let aktuelldiv: HTMLElement = document.getElementById("aktuell");
             
 
-            let posLeft: string = "";
-            let posTop: string = "";
-            posLeft = (0 * 200) + "px";
-            posTop = 100 + "px";
-
             let img: HTMLElement = document.createElement("img");
-            img.style.position = "static";
-            img.style.left = posLeft;
-            img.style.top = posTop;
-
             img.setAttribute("src", sessionStorage.getItem("0"));
-        
             aktuelldiv.appendChild(img);
             }
 
@@ -97,18 +87,9 @@ namespace Aufgabe2_4 {
             let aktuelldiv: HTMLElement = document.getElementById("aktuell");
                 
             for (let i: number = 0; i < 2; i++) {
-            let posLeft: string = "";
-            let posTop: string = "";
-            posLeft = (i * 200) + "px";
-            posTop = 100 + "px";
     
             let img: HTMLElement = document.createElement("img");
-            img.style.position = "static";
-            img.style.left = posLeft;
-            img.style.top = posTop;
-
             img.setAttribute("src", sessionStorage.getItem(i.toString()));
-            
             aktuelldiv.appendChild(img);
             }
         }
@@ -123,22 +104,10 @@ namespace Aufgabe2_4 {
         const gewaehltes: EisWahl[] = waehlen();
         for (let i: number = 0; i < gewaehltes.length; i++) {
 
-            let posLeft: string = "";
-            let posTop: string = "";
-            posLeft = (i * 200) + "px";
-            posTop = 100 + "px";
-
             let img: HTMLElement = document.createElement("img");
-            img.style.position = "static";
-            img.style.left = posLeft;
-            img.style.top = posTop;
-
             img.setAttribute("src", gewaehltes[i].dateiName);
-
-
             img.addEventListener("click", function (): void {speichern(gewaehltes[i].dateiName); }); 
             img.addEventListener("click", openNextSite); 
-
 
             img.id = gewaehltes[i].imageID; //ID des Bildes festlegen
             previousElement.appendChild(img);

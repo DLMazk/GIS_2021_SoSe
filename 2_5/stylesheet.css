@@ -1,5 +1,3 @@
-
-
 body{
     
     background-image: url("Media/bg.png");
@@ -30,11 +28,21 @@ img {
 
 }
 
+#fertig {
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+}
+
 #auswahl img,
 #fertig img {
 
     transition: all 0.5s ease-in 0s;
     transform: scale(1);
+    
+
 
 }
 

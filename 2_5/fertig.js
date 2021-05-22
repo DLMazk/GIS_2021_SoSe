@@ -2,14 +2,14 @@
 var Aufgabe2_5;
 (function (Aufgabe2_5) {
     let fin = document.getElementById("fertig");
-    function abschließen() {
+    function abschließen(_source) {
         //    const gewaehltes: EisWahl[] = waehlen();
-        for (let i = 0; i < sessionStorage.length; i++) {
-            let img = document.createElement("img");
-            img.setAttribute("src", sessionStorage.getItem(i.toString()));
-            fin.appendChild(img);
-        }
+        let img = document.createElement("img");
+        img.setAttribute("src", _source);
+        fin.appendChild(img);
     }
-    abschließen();
+    abschließen(sessionStorage.getItem("0"));
+    abschließen(sessionStorage.getItem("1"));
+    abschließen(sessionStorage.getItem("2"));
 })(Aufgabe2_5 || (Aufgabe2_5 = {}));
 //# sourceMappingURL=fertig.js.map

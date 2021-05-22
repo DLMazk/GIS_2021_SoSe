@@ -44,27 +44,50 @@ namespace Aufgabe2_5 {
 
     }
 
-    //        function waehlen(): EisWahl[] {
-    //         let art: EisWahl[] = myObj.wahlGröße;
+    // function waehlen(): EisWahl[] {
+    //     let art: EisWahl[] = myObj.wahlGröße;
 
-    //         if (window.location.href.includes("Sorten.html"))
+    //     if (window.location.href.includes("Sorten.html"))
     //         art = myObj.wahlSorte;
 
-    //         if (window.location.href.includes("Topping.html")) 
+    //     if (window.location.href.includes("Topping.html"))
     //         art = myObj.wahlTop;
 
-    //         return art;
+    //     return art;
     // }
+
+    // async function einlesen(_url: RequestInfo): Promise<void> {
+
+    //     let ant: Response = await fetch(_url);
+    //     let daten: Eis = await ant.json();
+    //     console.log("Antwort", daten);
+
+    //     auswaehlen(daten);
+
+    // }
+    // einlesen("http://127.0.0.1:5500/2_5/data.json");
+
+    function waehlen(_eis: Eis): EisWahl[] {
+        let art: EisWahl[] = _eis.wahlGröße;
+
+        if (window.location.href.includes("Sorten.html"))
+            art = _eis.wahlSorte;
+
+        if (window.location.href.includes("Topping.html"))
+            art = _eis.wahlTop;
+
+        return art;
+    }
 
     async function einlesen(_url: RequestInfo): Promise<void> {
 
         let ant: Response = await fetch(_url);
         let daten: Eis = await ant.json();
         console.log("Antwort", daten);
-
-        auswaehlen(daten);
+        let wahl: EisWahl[] = waehlen(daten);
+        auswaehlen(wahl);
     }
-    einlesen("http://127.0.0.1:5500/2_5/data.json");
+    einlesen("data.json");
 
 
 
@@ -109,44 +132,44 @@ namespace Aufgabe2_5 {
 
 
 
-    //Auswahl treffen
-    function auswaehlen(_gewaehltes: Eis): void {
+    // //Auswahl treffen
+    // function auswaehlen(_gewaehltes: Eis): void {
+    //     const gewaehltes: Eis[] = waehlen();
+    //     // let myKeys: String[] = Object.keys(_gewaehltes);
+    //     let myValues: EisWahl[][] = Object.values(_gewaehltes);
 
-        let myKeys: String[] = Object.keys(_gewaehltes);
-        let myValues: EisWahl[][] = Object.values(_gewaehltes);
+    //     for (let i: number = 0; i < myValues.length; i++) {
+    //         //console.log(myKeys[i]);
+    //         for (let h: number = 0; h < myValues.length; h++) {
+    //             //console.log(myValues);
 
-        for (let i: number = 0; i < myValues.length; i++) {
-            console.log(myKeys[i]);
-            for (let h: number = 0; h < myValues.length; h++) {
-                console.log(myValues);
+    //             let img: HTMLElement = document.createElement("img");
+    //             img.setAttribute("src", myValues[i][h].dateiName);
+    //             img.addEventListener("click", function (): void { speichern(myValues[i][h].dateiName); });
+    //             img.addEventListener("click", openNextSite);
+    //             img.id = myValues[i][h].imageID;
+    //             previousElement.appendChild(img);
 
-                let img: HTMLElement = document.createElement("img");
-                img.setAttribute("src", myValues[i][h].dateiName);
-                img.addEventListener("click", function (): void { speichern(myValues[i][h].dateiName); });
-                img.addEventListener("click", openNextSite);
-                img.id = myValues[i][h].imageID;
-                previousElement.appendChild(img);
-
-            }
-        }
-    }
-    // auswaehlen();
-
-
-    // //Waffel auswaehlen
-    // function auswaehlen(_gewaehltes: EisWahl[]): void {
-    //     //const gewaehltes: EisWahl[] = waehlen();
-    //     for (let i: number = 0; i < _gewaehltes.length; i++) {
-
-    //         let img: HTMLElement = document.createElement("img");
-    //         img.setAttribute("src", _gewaehltes[i].dateiName);
-    //         img.addEventListener("click", function (): void { speichern(_gewaehltes[i].dateiName); });
-    //         img.addEventListener("click", openNextSite);
-
-    //         img.id = _gewaehltes[i].imageID; //ID des Bildes festlegen
-    //         previousElement.appendChild(img);
+    //         }
     //     }
     // }
-    // auswaehlen();
+    
+
+
+    //Waffel auswaehlen
+    function auswaehlen(_gewaehltes: EisWahl[]): void {
+        //const gewaehltes: EisWahl[] = waehlen();
+        for (let i: number = 0; i < _gewaehltes.length; i++) {
+
+            let img: HTMLElement = document.createElement("img");
+            img.setAttribute("src", _gewaehltes[i].dateiName);
+            img.addEventListener("click", function (): void { speichern(_gewaehltes[i].dateiName); });
+            img.addEventListener("click", openNextSite);
+
+            img.id = _gewaehltes[i].imageID; //ID des Bildes festlegen
+            previousElement.appendChild(img);
+        }
+    }
+    
 
 }

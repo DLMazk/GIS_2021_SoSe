@@ -1,6 +1,6 @@
 "use strict";
-var Aufgabe2_4;
-(function (Aufgabe2_4) {
+var Aufgabe2_5;
+(function (Aufgabe2_5) {
     let fin = document.getElementById("fertig");
     function abschließen() {
         //    const gewaehltes: EisWahl[] = waehlen();
@@ -13,13 +13,10 @@ var Aufgabe2_4;
             img.style.position = "static";
             img.style.left = posLeft;
             img.style.top = posTop;
-            img.style.margin = "10px";
-            img.style.height = 200 + "px";
-            img.style.width = 200 + "px";
             img.setAttribute("src", sessionStorage.getItem(i.toString()));
             fin.appendChild(img);
         }
     }
     abschließen();
-})(Aufgabe2_4 || (Aufgabe2_4 = {}));
+})(Aufgabe2_5 || (Aufgabe2_5 = {}));
 //# sourceMappingURL=fertig.js.map

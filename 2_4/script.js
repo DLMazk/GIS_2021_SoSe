@@ -25,19 +25,20 @@ var Aufgabe2_4;
             art = Aufgabe2_4.myObj.wahlTop;
         return art;
     }
-    function speichern(dateiName) {
+    function speichern(_dateiName) {
         if (window.location.href.includes("index.html")) {
-            sessionStorage.setItem("0", dateiName);
+            sessionStorage.setItem("0", _dateiName);
         }
         if (window.location.href.includes("Sorten.html")) {
-            sessionStorage.setItem("1", dateiName);
+            sessionStorage.setItem("1", _dateiName);
         }
         if (window.location.href.includes("Topping.html")) {
-            sessionStorage.setItem("2", dateiName);
+            sessionStorage.setItem("2", _dateiName);
         }
     }
     //aktuelle Auswahl
     function aktuell() {
+        //wenn bei "Sorten"
         if (window.location.href.includes("Sorten.html")) {
             let aktuelldiv = document.getElementById("aktuell");
             let posLeft = "";
@@ -48,12 +49,10 @@ var Aufgabe2_4;
             img.style.position = "static";
             img.style.left = posLeft;
             img.style.top = posTop;
-            img.style.margin = "10px";
-            img.style.height = 150 + "px";
-            img.style.width = 150 + "px";
             img.setAttribute("src", sessionStorage.getItem("0"));
             aktuelldiv.appendChild(img);
         }
+        //wenn bei "Topping"
         if (window.location.href.includes("Topping.html")) {
             let aktuelldiv = document.getElementById("aktuell");
             for (let i = 0; i < 2; i++) {
@@ -65,9 +64,6 @@ var Aufgabe2_4;
                 img.style.position = "static";
                 img.style.left = posLeft;
                 img.style.top = posTop;
-                img.style.margin = "10px";
-                img.style.height = 150 + "px";
-                img.style.width = 150 + "px";
                 img.setAttribute("src", sessionStorage.getItem(i.toString()));
                 aktuelldiv.appendChild(img);
             }
@@ -86,9 +82,6 @@ var Aufgabe2_4;
             img.style.position = "static";
             img.style.left = posLeft;
             img.style.top = posTop;
-            img.style.margin = "10px";
-            img.style.height = 200 + "px";
-            img.style.width = 200 + "px";
             img.setAttribute("src", gewaehltes[i].dateiName);
             img.addEventListener("click", function () { speichern(gewaehltes[i].dateiName); });
             img.addEventListener("click", openNextSite);

@@ -44,17 +44,27 @@ namespace Aufgabe2_5 {
 
     }
 
-       function waehlen(): EisWahl[] {
-        let art: EisWahl[] = myObj.wahlGröße;
+//        function waehlen(): EisWahl[] {
+//         let art: EisWahl[] = myObj.wahlGröße;
 
-        if (window.location.href.includes("Sorten.html"))
-        art = myObj.wahlSorte;
+//         if (window.location.href.includes("Sorten.html"))
+//         art = myObj.wahlSorte;
     
-        if (window.location.href.includes("Topping.html")) 
-        art = myObj.wahlTop;
+//         if (window.location.href.includes("Topping.html")) 
+//         art = myObj.wahlTop;
     
-        return art;
-}
+//         return art;
+// }
+
+       async function einlesen(_url: RequestInfo): Promise<void> {
+
+        let ant: Response = await fetch(_url); //wartet darauf, dass die Seite geladen wird
+        console.log("Antwort", ant);
+
+
+    }
+
+
 
        function speichern(_dateiName: string): void {
 

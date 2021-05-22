@@ -17,7 +17,7 @@ var Aufgabe2_5;
             window.open("final.html", "_self");
         }
     }
-    //        
+    //        function waehlen(): EisWahl[] {
     //         let art: EisWahl[] = myObj.wahlGröße;
     //         if (window.location.href.includes("Sorten.html"))
     //         art = myObj.wahlSorte;
@@ -30,14 +30,6 @@ var Aufgabe2_5;
         let daten = await ant.json();
         console.log("Antwort", daten);
         auswaehlen(daten);
-        function waehlen() {
-            let art = daten.wahlGröße;
-            if (window.location.href.includes("Sorten.html"))
-                art = daten.wahlSorte;
-            if (window.location.href.includes("Topping.html"))
-                art = daten.wahlTop;
-            return art;
-        }
     }
     einlesen("http://127.0.0.1:5500/2_5/data.json");
     function speichern(_dateiName) {

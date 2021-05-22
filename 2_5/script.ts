@@ -44,7 +44,7 @@ namespace Aufgabe2_5 {
 
     }
 
-    //        
+    //        function waehlen(): EisWahl[] {
     //         let art: EisWahl[] = myObj.wahlGröße;
 
     //         if (window.location.href.includes("Sorten.html"))
@@ -63,18 +63,6 @@ namespace Aufgabe2_5 {
         console.log("Antwort", daten);
 
         auswaehlen(daten);
-        function waehlen(): EisWahl[] {
-        let art: EisWahl[] = daten.wahlGröße;
-
-        if (window.location.href.includes("Sorten.html"))
-            art = daten.wahlSorte;
-
-        if (window.location.href.includes("Topping.html"))
-            art = daten.wahlTop;
-
-        return art;
-        }
-
     }
     einlesen("http://127.0.0.1:5500/2_5/data.json");
 

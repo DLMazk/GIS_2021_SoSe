@@ -63,7 +63,6 @@ namespace Aufgabe2_5 {
         let daten: EisWahl[] = await ant.json();
         auswaehlen(daten);
         }
-    
        einlesen("https://dlmazk.github.io/GIS_2021_SoSe/2_5/data.json");
 
 

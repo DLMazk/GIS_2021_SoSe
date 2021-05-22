@@ -28,7 +28,10 @@ var Aufgabe2_5;
     async function einlesen(_url) {
         let ant = await fetch(_url); //wartet darauf, dass die Seite geladen wird
         console.log("Antwort", ant);
+        let daten = await ant.json();
+        auswaehlen(daten);
     }
+    einlesen("https://dlmazk.github.io/GIS_2021_SoSe/2_5/data.json");
     function speichern(_dateiName) {
         if (window.location.href.includes("index.html")) {
             sessionStorage.setItem("0", _dateiName);
@@ -45,14 +48,7 @@ var Aufgabe2_5;
         //wenn bei "Sorten"
         if (window.location.href.includes("Sorten.html")) {
             let aktuelldiv = document.getElementById("aktuell");
-            let posLeft = "";
-            let posTop = "";
-            posLeft = (0 * 200) + "px";
-            posTop = 100 + "px";
             let img = document.createElement("img");
-            img.style.position = "static";
-            img.style.left = posLeft;
-            img.style.top = posTop;
             img.setAttribute("src", sessionStorage.getItem("0"));
             aktuelldiv.appendChild(img);
         }
@@ -60,14 +56,7 @@ var Aufgabe2_5;
         if (window.location.href.includes("Topping.html")) {
             let aktuelldiv = document.getElementById("aktuell");
             for (let i = 0; i < 2; i++) {
-                let posLeft = "";
-                let posTop = "";
-                posLeft = (i * 200) + "px";
-                posTop = 100 + "px";
                 let img = document.createElement("img");
-                img.style.position = "static";
-                img.style.left = posLeft;
-                img.style.top = posTop;
                 img.setAttribute("src", sessionStorage.getItem(i.toString()));
                 aktuelldiv.appendChild(img);
             }
@@ -75,24 +64,16 @@ var Aufgabe2_5;
     }
     aktuell();
     //Waffel auswaehlen
-    function auswaehlen() {
-        const gewaehltes = waehlen();
-        for (let i = 0; i < gewaehltes.length; i++) {
-            let posLeft = "";
-            let posTop = "";
-            posLeft = (i * 200) + "px";
-            posTop = 100 + "px";
+    function auswaehlen(_gewaehltes) {
+        //const gewaehltes: EisWahl[] = waehlen();
+        for (let i = 0; i < _gewaehltes.length; i++) {
             let img = document.createElement("img");
-            img.style.position = "static";
-            img.style.left = posLeft;
-            img.style.top = posTop;
-            img.setAttribute("src", gewaehltes[i].dateiName);
-            img.addEventListener("click", function () { speichern(gewaehltes[i].dateiName); });
+            img.setAttribute("src", _gewaehltes[i].dateiName);
+            img.addEventListener("click", function () { speichern(_gewaehltes[i].dateiName); });
             img.addEventListener("click", openNextSite);
-            img.id = gewaehltes[i].imageID; //ID des Bildes festlegen
+            img.id = _gewaehltes[i].imageID; //ID des Bildes festlegen
             previousElement.appendChild(img);
         }
     }
-    auswaehlen();
 })(Aufgabe2_5 || (Aufgabe2_5 = {}));
 //# sourceMappingURL=script.js.map

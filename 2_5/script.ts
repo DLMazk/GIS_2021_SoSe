@@ -67,6 +67,7 @@ namespace Aufgabe2_5 {
     // }
     // einlesen("http://127.0.0.1:5500/2_5/data.json");
 
+     
     function waehlen(_eis: Eis): EisWahl[] {
         let art: EisWahl[] = _eis.wahlGröße;
 
@@ -94,7 +95,7 @@ namespace Aufgabe2_5 {
     function speichern(_dateiName: string): void {
 
         if (window.location.href.includes("index.html")) {
-            sessionStorage.setItem("0", _dateiName);
+            sessionStorage.setItem("0", _dateiName);    // 0 im Prinzip die ID der Auswahl
         }
         if (window.location.href.includes("Sorten.html")) {
             sessionStorage.setItem("1", _dateiName);
@@ -130,9 +131,22 @@ namespace Aufgabe2_5 {
     }
     aktuell();
 
+    //Waffel auswaehlen
+    function auswaehlen(_gewaehltes: EisWahl[]): void {
+        //const gewaehltes: EisWahl[] = waehlen();
+        for (let i: number = 0; i < _gewaehltes.length; i++) {
 
+            let img: HTMLElement = document.createElement("img");
+            img.setAttribute("src", _gewaehltes[i].dateiName);
+            img.addEventListener("click", function (): void { speichern(_gewaehltes[i].dateiName); });
+            img.addEventListener("click", openNextSite);
 
-    // //Auswahl treffen
+            img.id = _gewaehltes[i].imageID; //ID des Bildes festlegen
+            previousElement.appendChild(img);
+        }
+    }
+
+        // //Auswahl treffen
     // function auswaehlen(_gewaehltes: Eis): void {
     //     const gewaehltes: Eis[] = waehlen();
     //     // let myKeys: String[] = Object.keys(_gewaehltes);
@@ -153,23 +167,6 @@ namespace Aufgabe2_5 {
     //         }
     //     }
     // }
-    
-
-
-    //Waffel auswaehlen
-    function auswaehlen(_gewaehltes: EisWahl[]): void {
-        //const gewaehltes: EisWahl[] = waehlen();
-        for (let i: number = 0; i < _gewaehltes.length; i++) {
-
-            let img: HTMLElement = document.createElement("img");
-            img.setAttribute("src", _gewaehltes[i].dateiName);
-            img.addEventListener("click", function (): void { speichern(_gewaehltes[i].dateiName); });
-            img.addEventListener("click", openNextSite);
-
-            img.id = _gewaehltes[i].imageID; //ID des Bildes festlegen
-            previousElement.appendChild(img);
-        }
-    }
     
 
 }

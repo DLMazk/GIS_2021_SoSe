@@ -1,1 +1,1 @@
-Abgabe 2_4
+Abgabe Aufgabe 2 - Typescript

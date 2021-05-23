@@ -18,10 +18,11 @@ namespace Aufgabe2_5 {
 
     let previousElement: HTMLElement = document.getElementById("auswahl");
 
-    //Sorten wählen Anweisung
-    let h3: HTMLElement = document.createElement("h3");
-    h3.style.margin = "10px";
-    document.body.appendChild(h3);
+    
+
+
+
+
 
 
     function openNextSite(): void {
@@ -84,7 +85,7 @@ namespace Aufgabe2_5 {
 
         let ant: Response = await fetch(_url);
         let daten: Eis = await ant.json();
-        console.log("Antwort", daten);
+        //console.log("Antwort", daten);
         let wahl: EisWahl[] = waehlen(daten);
         auswaehlen(wahl);
     }
@@ -167,6 +168,4 @@ namespace Aufgabe2_5 {
     //         }
     //     }
     // }
-    
-
 }

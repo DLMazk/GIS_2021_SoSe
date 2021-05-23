@@ -2,10 +2,6 @@
 var Aufgabe2_5;
 (function (Aufgabe2_5) {
     let previousElement = document.getElementById("auswahl");
-    //Sorten wählen Anweisung
-    let h3 = document.createElement("h3");
-    h3.style.margin = "10px";
-    document.body.appendChild(h3);
     function openNextSite() {
         if (window.location.href.includes("index.html")) {
             window.open("Sorten.html", "_self");
@@ -43,14 +39,14 @@ var Aufgabe2_5;
     async function einlesen(_url) {
         let ant = await fetch(_url);
         let daten = await ant.json();
-        console.log("Antwort", daten);
+        //console.log("Antwort", daten);
         let wahl = waehlen(daten);
         auswaehlen(wahl);
     }
     einlesen("data.json");
     function speichern(_dateiName) {
         if (window.location.href.includes("index.html")) {
-            sessionStorage.setItem("0", _dateiName);
+            sessionStorage.setItem("0", _dateiName); // 0 im Prinzip die ID der Auswahl
         }
         if (window.location.href.includes("Sorten.html")) {
             sessionStorage.setItem("1", _dateiName);
@@ -79,6 +75,18 @@ var Aufgabe2_5;
         }
     }
     aktuell();
+    //Waffel auswaehlen
+    function auswaehlen(_gewaehltes) {
+        //const gewaehltes: EisWahl[] = waehlen();
+        for (let i = 0; i < _gewaehltes.length; i++) {
+            let img = document.createElement("img");
+            img.setAttribute("src", _gewaehltes[i].dateiName);
+            img.addEventListener("click", function () { speichern(_gewaehltes[i].dateiName); });
+            img.addEventListener("click", openNextSite);
+            img.id = _gewaehltes[i].imageID; //ID des Bildes festlegen
+            previousElement.appendChild(img);
+        }
+    }
     // //Auswahl treffen
     // function auswaehlen(_gewaehltes: Eis): void {
     //     const gewaehltes: Eis[] = waehlen();
@@ -97,17 +105,5 @@ var Aufgabe2_5;
     //         }
     //     }
     // }
-    //Waffel auswaehlen
-    function auswaehlen(_gewaehltes) {
-        //const gewaehltes: EisWahl[] = waehlen();
-        for (let i = 0; i < _gewaehltes.length; i++) {
-            let img = document.createElement("img");
-            img.setAttribute("src", _gewaehltes[i].dateiName);
-            img.addEventListener("click", function () { speichern(_gewaehltes[i].dateiName); });
-            img.addEventListener("click", openNextSite);
-            img.id = _gewaehltes[i].imageID; //ID des Bildes festlegen
-            previousElement.appendChild(img);
-        }
-    }
 })(Aufgabe2_5 || (Aufgabe2_5 = {}));
 //# sourceMappingURL=script.js.map

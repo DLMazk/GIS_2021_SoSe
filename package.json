@@ -1,7 +1,7 @@
 {
   "name": "mazkserver",
   "version": "1.0.0",
-  "description": "mein erster Server",
+  "description": "Mein erster Server",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {},

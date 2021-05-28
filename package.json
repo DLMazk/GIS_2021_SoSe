@@ -1,0 +1,21 @@
+{
+  "name": "mazkserver",
+  "version": "1.0.0",
+  "description": "mein erster Server",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start": "node 3_1/script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DLMazk/GIS_2021_SoSe.git"
+  },
+  "author": "Daniel Litterst",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DLMazk/GIS_2021_SoSe/issues"
+  },
+  "homepage": "https://github.com/DLMazk/GIS_2021_SoSe#readme"
+}

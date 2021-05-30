@@ -1,26 +1,26 @@
-import * as Http from "http";
+    async function datenSenden(): Promise<void> {
 
-export namespace Aufgabe3_1 {
-    console.log("Starting server"); //Konsolenausgabe: Starting server
-    let port: number = Number(process.env.PORT);    
-    if (!port)
-        port = 8100;
+        let daten: FormData = new FormData(document.forms[0]);
+        console.log(": " + daten.get("name"));
 
-    let server: Http.Server = Http.createServer();
-    server.addListener("request", handleRequest);
-    server.addListener("listening", handleListen);
-    server.listen(port);
+        for (let entry of daten) {
+            console.log(entry);
+            console.log("name:" + entry[0]);
+            console.log("value:" + entry[1]);
+        }
 
-    function handleListen(): void {
-        console.log("Listening");
+        let query: URLSearchParams = new URLSearchParams(<any>daten);
+        let _url: RequestInfo = "https://dlmazk.herokuapp.com/";
+        _url = _url + "?" + query.toString();
+        console.log(_url);
+
+        let ant: Response = await fetch(_url);
+        let ausgabe: string = await ant.text();
+        console.log(ausgabe);
+
+        let rueck: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("ausgabe");
+        rueck.innerText = ausgabe;
     }
 
-
-    function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
-        console.log("I hear voices!");
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
-        _response.write(_request.url);
-        _response.end();
-    }
-}
+    let button: HTMLButtonElement = <HTMLButtonElement> document.getElementById("button");
+    button.addEventListener("click", datenSenden);

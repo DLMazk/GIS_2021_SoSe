@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Mein erster Server",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^15.6.1"
+  },
   "devDependencies": {},
   "scripts": {
     "start": "node 3_1/script.js"

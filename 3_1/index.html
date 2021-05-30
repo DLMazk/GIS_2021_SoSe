@@ -4,25 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="client/script.js" defer></script>
     <title>Document</title>
-    <script src="script.js" defer></script>
 </head>
 <body>
-
-    <form method="GET" action="https://dlmazk.herokuapp.com/">
-        <lable>Name:</lable><br>
-        <input name="fname" type="text">
-        <br>
-        <lable>Vorname:</lable><br>
-        <input name="fname" type="text">
-        <br>
-        <lable>E-Mail Adresse:</lable><br>
-        <input name="fname" type="text">
-
-        <button type="submit">Abschicken</button>
+    
+    <h3>Dein Formular</h3>
+    <form>
+        <input class="Kontakt" type="text" name="vorname" placeholder="Vorname"><br>
+        <input class="Kontakt" type="text" name="nachname" placeholder="Nachname"><br>
+        <input class="Kontakt" type="email" name="email" placeholder="E-Mail"><br>
+        <button type="button" id="button" >Abschicken</button>
+        <p id="ausgabe"></p>
     </form>
-
-    <br>
-
+    
 </body>
 </html>

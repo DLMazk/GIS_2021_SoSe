@@ -1,26 +1,22 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Aufgabe3_1 = void 0;
-const Http = require("http");
-var Aufgabe3_1;
-(function (Aufgabe3_1) {
-    console.log("Starting server"); //Konsolenausgabe: Starting server
-    let port = Number(process.env.PORT);
-    if (!port)
-        port = 8100;
-    let server = Http.createServer();
-    server.addListener("request", handleRequest);
-    server.addListener("listening", handleListen);
-    server.listen(port);
-    function handleListen() {
-        console.log("Listening");
+async function datenSenden() {
+    let daten = new FormData(document.forms[0]);
+    console.log(": " + daten.get("name"));
+    for (let entry of daten) {
+        console.log(entry);
+        console.log("name:" + entry[0]);
+        console.log("value:" + entry[1]);
     }
-    function handleRequest(_request, _response) {
-        console.log("I hear voices!");
-        _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access-Control-Allow-Origin", "*");
-        _response.write(_request.url);
-        _response.end();
-    }
-})(Aufgabe3_1 = exports.Aufgabe3_1 || (exports.Aufgabe3_1 = {}));
+    let query = new URLSearchParams(daten);
+    let _url = "https://dlmazk.herokuapp.com/";
+    _url = _url + "?" + query.toString();
+    console.log(_url);
+    let ant = await fetch(_url);
+    let ausgabe = await ant.text();
+    console.log(ausgabe);
+    let rueck = document.getElementById("ausgabe");
+    rueck.innerText = ausgabe;
+}
+let button = document.getElementById("button");
+button.addEventListener("click", datenSenden);
 //# sourceMappingURL=script.js.map

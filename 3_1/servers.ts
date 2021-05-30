@@ -25,4 +25,5 @@ export namespace Aufgabe3_1 {
         _response.write(_request.url); //was wird zurückgegeben: Als Antwort auf die Anfrage 
         _response.end(); //Antwort fertig und zurückschicken 
     }
+    
 }

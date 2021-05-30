@@ -20,6 +20,7 @@
 
         let rueck: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("ausgabe");
         rueck.innerText = ausgabe;
+        
     }
 
     let button: HTMLButtonElement = <HTMLButtonElement> document.getElementById("button");

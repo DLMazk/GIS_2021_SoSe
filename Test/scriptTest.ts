@@ -5,11 +5,8 @@ namespace Aufgabe3_2 {
     async function datenSendenHTML(): Promise<void> {
         let daten: FormData = new FormData(document.forms[0]); //Objekt FormData wird generiert
         let url: RequestInfo = "https://dlmazk.herokuapp.com"; // Verbindung zu heroku (wichtig letzten / wegmachen)
-        //let url: RequestInfo = "http://localhost:8100"; //zum lokal testen 
-        url += "/html"; //Button HTML gedrückt und nun diesen Path mit /html nehmen 
+        url += "/html"; //HTML Button
 
-        //näachste Zeile sorgt dafür, dass any nicht mehr unterstrichen wird
-        //tslint:disable-next-line 
         let query: URLSearchParams = new URLSearchParams(<any>daten);
         url = url + "?" + query.toString(); //in String umwandeln 
         let antwort: Response = await fetch(url); //warten auf url
@@ -23,12 +20,9 @@ namespace Aufgabe3_2 {
 
     async function datenSendenJSON(): Promise<void> {
         let daten: FormData = new FormData(document.forms[0]);
-        let url: RequestInfo = "https://dlmazk.herokuapp.com"; // Verbindung zu heroku (wichtig letzten / wegmachen)
-        //let url: RequestInfo = "http://localhost:8100"; //zum lokal testen 
-        url += "/json"; //Button JSON gedrückt und nun diesen Path mit /json nehmen 
+        let url: RequestInfo = "https://dlmazk.herokuapp.com"; // Verbindung zu heroku
+        url += "/json"; //JSON Button 
         
-        //näachste Zeile sorgt dafür, dass any nicht mehr unterstrichen wird
-        //tslint:disable-next-line 
         let query: URLSearchParams = new URLSearchParams(<any>daten);
         url = url + "?" + query.toString();
         let antwort: Response = await fetch(url);

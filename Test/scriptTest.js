@@ -5,10 +5,7 @@ var Aufgabe3_2;
     async function datenSendenHTML() {
         let daten = new FormData(document.forms[0]); //Objekt FormData wird generiert
         let url = "https://dlmazk.herokuapp.com"; // Verbindung zu heroku (wichtig letzten / wegmachen)
-        //let url: RequestInfo = "http://localhost:8100"; //zum lokal testen 
-        url += "/html"; //Button HTML gedrückt und nun diesen Path mit /html nehmen 
-        //näachste Zeile sorgt dafür, dass any nicht mehr unterstrichen wird
-        //tslint:disable-next-line 
+        url += "/html"; //HTML Button
         let query = new URLSearchParams(daten);
         url = url + "?" + query.toString(); //in String umwandeln 
         let antwort = await fetch(url); //warten auf url
@@ -19,11 +16,8 @@ var Aufgabe3_2;
     buttonHTML.addEventListener("click", datenSendenHTML);
     async function datenSendenJSON() {
         let daten = new FormData(document.forms[0]);
-        let url = "https://dlmazk.herokuapp.com"; // Verbindung zu heroku (wichtig letzten / wegmachen)
-        //let url: RequestInfo = "http://localhost:8100"; //zum lokal testen 
-        url += "/json"; //Button JSON gedrückt und nun diesen Path mit /json nehmen 
-        //näachste Zeile sorgt dafür, dass any nicht mehr unterstrichen wird
-        //tslint:disable-next-line 
+        let url = "https://dlmazk.herokuapp.com"; // Verbindung zu heroku
+        url += "/json"; //JSON Button 
         let query = new URLSearchParams(daten);
         url = url + "?" + query.toString();
         let antwort = await fetch(url);

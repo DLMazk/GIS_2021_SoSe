@@ -1,5 +1,5 @@
 import * as Http from "http";
-import * as url from "url";
+// import * as url from "url";
 
 export namespace Aufgabe3_1 {
     console.log("Starting server"); //Konsolenausgabe
@@ -28,18 +28,18 @@ export namespace Aufgabe3_1 {
     }
 
 
-    //Diesen Code innerhalb von einem aktiven Server testen:
+    // //Diesen Code innerhalb von einem aktiven Server testen:
 
-    let adresse: string = 'http://localhost:8100/default.htm?jahr=2017&monat=february';
-    //Adresse parsen (umwandeln):
-    let q = url.parse(adresse, true);
+    // let adresse: string = 'http://localhost:8100/default.htm?jahr=2017&monat=february';
+    // //Adresse parsen (umwandeln):
+    // let q = url.parse(adresse, true);
 
-    /*Die parse Methode gibt ein Objekt zurück, dass die URL Eigenschaften enthält. So können die fest definierten Eigenschaften einer URL ausgelesen werden:*/
-    console.log(q.host);
-    console.log(q.pathname);
-    console.log(q.search);
+    // /*Die parse Methode gibt ein Objekt zurück, dass die URL Eigenschaften enthält. So können die fest definierten Eigenschaften einer URL ausgelesen werden:*/
+    // console.log(q.host);
+    // console.log(q.pathname);
+    // console.log(q.search);
 
-    /*Die query Eigenschaft gibt ein Ojekt zurück, dass alle query-string Parameter als Eigenschaften besitzt. So können beliebig gesendete Attribute ausgelesen werden:*/
-    var qdata = q.query;
-    console.log(qdata.monat);
+    // /*Die query Eigenschaft gibt ein Ojekt zurück, dass alle query-string Parameter als Eigenschaften besitzt. So können beliebig gesendete Attribute ausgelesen werden:*/
+    // var qdata = q.query;
+    // console.log(qdata.monat);
 }

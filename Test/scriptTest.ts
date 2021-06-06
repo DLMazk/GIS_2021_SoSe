@@ -4,7 +4,7 @@ namespace Aufgabe3_2 {
 
     async function datenSendenHTML(): Promise<void> {
         let daten: FormData = new FormData(document.forms[0]); //Objekt FormData wird generiert
-        let url: RequestInfo = "https://dlmazk.herokuapp.com/"; // Verbindung zu heroku (wichtig letzten / wegmachen)
+        let url: RequestInfo = "https://dlmazk.herokuapp.com"; // Verbindung zu heroku (wichtig letzten / wegmachen)
         //let url: RequestInfo = "http://localhost:8100"; //zum lokal testen 
         url += "/html"; //Button HTML gedrückt und nun diesen Path mit /html nehmen 
 
@@ -23,7 +23,7 @@ namespace Aufgabe3_2 {
 
     async function datenSendenJSON(): Promise<void> {
         let daten: FormData = new FormData(document.forms[0]);
-        let url: RequestInfo = "https://dlmazk.herokuapp.com/"; // Verbindung zu heroku (wichtig letzten / wegmachen)
+        let url: RequestInfo = "https://dlmazk.herokuapp.com"; // Verbindung zu heroku (wichtig letzten / wegmachen)
         //let url: RequestInfo = "http://localhost:8100"; //zum lokal testen 
         url += "/json"; //Button JSON gedrückt und nun diesen Path mit /json nehmen 
         

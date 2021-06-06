@@ -38,4 +38,4 @@ var Aufgabe3_2;
         _response.end(); //Antwort fertig und zurückschicken 
     }
 })(Aufgabe3_2 = exports.Aufgabe3_2 || (exports.Aufgabe3_2 = {}));
-//# sourceMappingURL=serverTest.js.map
+//# sourceMappingURL=server.js.map

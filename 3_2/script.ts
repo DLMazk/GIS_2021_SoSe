@@ -1,27 +1,40 @@
-    async function datenSenden(): Promise<void> {
+namespace Aufgabe3_2 {
 
-        let daten: FormData = new FormData(document.forms[0]);
-        console.log(": " + daten.get("name"));
+    let rueckgabe: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("serverausgabe"); //an meine Seite anheften 
 
-        for (let entry of daten) {
-            console.log(entry);
-            console.log("name:" + entry[0]);
-            console.log("value:" + entry[1]);
-        }
+    async function datenSendenHTML(): Promise<void> {
+        let daten: FormData = new FormData(document.forms[0]); //Objekt FormData wird generiert
+        let url: RequestInfo = "https://dlmazk.herokuapp.com"; // Verbindung zu Heroku
+        url += "/html"; //HTML Button
 
         let query: URLSearchParams = new URLSearchParams(<any>daten);
-        let _url: RequestInfo = "https://dlmazk.herokuapp.com/";
-        _url = _url + "?" + query.toString();
-        console.log(_url);
-
-        let ant: Response = await fetch(_url);
-        let ausgabe: string = await ant.text();
-        console.log(ausgabe);
-
-        let rueck: HTMLParagraphElement = <HTMLParagraphElement> document.getElementById("ausgabe");
-        rueck.innerText = ausgabe;
-        
+        url = url + "?" + query.toString(); //in String umwandeln 
+        let antwort: Response = await fetch(url); //warten auf url
+        let ausgabe: string = await antwort.text(); //warten auf antwort 
+        rueckgabe.innerHTML = ausgabe;
     }
 
-    let butt: HTMLButtonElement = <HTMLButtonElement> document.getElementById("button");
-    butt.addEventListener("click", datenSenden);
+    let buttonHTML: HTMLButtonElement = <HTMLButtonElement> document.getElementById("buttonHTML");
+    buttonHTML.addEventListener("click", datenSendenHTML);
+
+    async function datenSendenJSON(): Promise<void> {
+        let daten: FormData = new FormData(document.forms[0]);
+        let url: RequestInfo = "https://dlmazk.herokuapp.com"; // Verbindung zu Heroku
+        url += "/json"; //JSON Button 
+        
+        let query: URLSearchParams = new URLSearchParams(<any>daten);
+        url = url + "?" + query.toString();
+        let antwort: Response = await fetch(url);
+        let jsonObjekt: Datenobjekt = await antwort.json(); //JSON-Objekt generieren 
+        console.log(jsonObjekt); //JSON Konsolenausgabe 
+    }
+
+    let buttonJSON: HTMLButtonElement = <HTMLButtonElement> document.getElementById("buttonJSON");
+    buttonJSON.addEventListener("click", datenSendenJSON);
+
+    interface Datenobjekt { //interface JSON
+        vorname: string;
+        nachname: string;
+        email: string;
+    }
+}

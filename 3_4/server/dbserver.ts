@@ -11,6 +11,7 @@ export namespace Aufgabe3_4 {
     }
 
     let dbURL: string = "mongodb+srv://gis-sose-2021.veqpi.mongodb.net/myFirstDatabase";
+    //let urlDBLokal: string = "mongodb://localhost:27017";
 
     let port: number = Number(process.env.PORT);
 

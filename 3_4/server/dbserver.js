@@ -7,6 +7,7 @@ const Mongo = require("mongodb");
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
     let dbURL = "mongodb+srv://gis-sose-2021.veqpi.mongodb.net/myFirstDatabase";
+    //let urlDBLokal: string = "mongodb://localhost:27017";
     let port = Number(process.env.PORT);
     if (!port) {
         port = 8100; //Port für lokalen Server erstellen

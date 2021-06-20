@@ -22,7 +22,8 @@ namespace Aufgabe3_4 {
 
         let rueckgabe: HTMLDivElement = <HTMLDivElement> document.getElementById("ausgabe");
         let daten: FormData = new FormData(document.forms[0]);
-        let url: RequestInfo = "http://localhost:8100";
+        let url: RequestInfo = "https://dlmazk.herokuapp.com/";
+        //let url: RequestInfo = "http://localhost:8100";
 
         url += "/empfangen";
 

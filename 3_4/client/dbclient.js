@@ -3,7 +3,8 @@ var Aufgabe3_4;
 (function (Aufgabe3_4) {
     async function abschicken() {
         let daten = new FormData(document.forms[0]);
-        let url = "http://localhost:8100";
+        let url = "https://dlmazk.herokuapp.com/";
+        //let url: RequestInfo = "http://localhost:8100";
         url += "/senden";
         let query = new URLSearchParams(daten);
         url = url + "?" + query.toString();

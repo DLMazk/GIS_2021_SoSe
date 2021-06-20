@@ -3,7 +3,8 @@ namespace Aufgabe3_4 {
     async function abschicken(): Promise<void> {
 
         let daten: FormData = new FormData(document.forms[0]);
-        let url: RequestInfo = "http://localhost:8100";
+        let url: RequestInfo = "https://dlmazk.herokuapp.com/";
+        //let url: RequestInfo = "http://localhost:8100";
 
         url += "/senden";
 

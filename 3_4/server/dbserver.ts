@@ -10,7 +10,7 @@ export namespace Aufgabe3_4 {
         mail: string;
     }
 
-    let dbURL: string = "mongodb+srv://gis-sose-2021.veqpi.mongodb.net/myFirstDatabase";
+    let dbURL: string = "mongodb+srv://gis-sose-2021.veqpi.mongodb.net";
     //let urlDBLokal: string = "mongodb://localhost:27017";
 
     let port: number = Number(process.env.PORT);

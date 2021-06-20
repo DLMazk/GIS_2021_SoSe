@@ -10,7 +10,7 @@ export namespace Aufgabe3_4 {
         mail: string;
     }
 
-    let dbURL: string = "mongodb+srv://gis-sose-2021.veqpi.mongodb.net/myFirstDatabase"
+    let dbURL: string = "mongodb+srv://gis-sose-2021.veqpi.mongodb.net/myFirstDatabase";
 
     let port: number = Number(process.env.PORT);
 
@@ -18,6 +18,7 @@ export namespace Aufgabe3_4 {
         port = 8100;    //Port für lokalen Server erstellen
     }
 
+    serverStarten(port);
 
     function serverStarten(_port: number | string): void {
         let server: Http.Server = Http.createServer();  //Server erstellen

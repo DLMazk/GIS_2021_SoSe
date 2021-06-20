@@ -11,6 +11,7 @@ var Aufgabe3_4;
     if (!port) {
         port = 8100; //Port für lokalen Server erstellen
     }
+    serverStarten(port);
     function serverStarten(_port) {
         let server = Http.createServer(); //Server erstellen
         server.listen(_port); // wird auf eine request bzw. antwort "gehört"

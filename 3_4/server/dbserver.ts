@@ -11,9 +11,9 @@ export namespace Aufgabe3_4 {
     }
 
     let dbURL: string = "mongodb+srv://gis-sose-2021.veqpi.mongodb.net";
-    //let urlDBLokal: string = "mongodb://localhost:27017";
+    //let dbURL: string = "mongodb://localhost:27017";
 
-    let port: number = Number(process.env.PORT);
+    let port: number = Number(process.env.PORT);    //"listening" Port
 
     if (!port) {
         port = 8100;    //Port für lokalen Server erstellen
@@ -24,12 +24,16 @@ export namespace Aufgabe3_4 {
     function serverStarten(_port: number | string): void {
         let server: Http.Server = Http.createServer();  //Server erstellen
         server.listen(_port);   // wird auf eine request bzw. antwort "gehört"
-        server.addListener("request", handleRequest);
+        server.addListener("request", handleRequest);   
         console.log("Der Server wurde gestartet!");
+        console.log(_port);
     }
+
 
     async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
 
+        console.log("I hear voices!");
+        _response.write("Hi");
         _response.setHeader("content-type", "text/html; charset=utf-8");    //HTML Head festlegen
         _response.setHeader("Access-Control-Allow-Origin", "*");    //Alle dürfen darauf zugreifen
 
@@ -39,7 +43,7 @@ export namespace Aufgabe3_4 {
             let daten: Daten = { vorname: url.query.vorname + "", nachname: url.query.nachname + "", mail: url.query.mail + "" };
 
             if (path == "/empfangen") {
-                let datenEmpf: Daten[] = await datenLesen(dbURL);
+                let datenEmpf: Daten[] = await datenLesen(dbURL);   
                 _response.write(JSON.stringify(datenEmpf));     //Inhalt der Datenbank auslesen
                 console.log(datenEmpf);
 
@@ -80,56 +84,7 @@ export namespace Aufgabe3_4 {
 
     }
 
-
-
-
 }
-
-
-//server.ts aus 3_2
-// console.log("Starting server");
-// let port: number = Number(process.env.PORT);
-// if (!port)
-//     port = 8100;
-
-// let server: Http.Server = Http.createServer();
-// server.addListener("request", handleRequest);
-// server.addListener("listening", handleListen);
-// server.listen(port);
-
-// function handleListen(): void {
-//     console.log("Listening");
-// }
-
-
-// function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
-//     console.log("I hear voices!");
-//     console.log(_request.url);
-
-//     _response.setHeader("content-type", "text/html; charset=utf-8");
-//     _response.setHeader("Access-Control-Allow-Origin", "*");
-
-//     if (_request.url) {
-//         let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-//         let pfad: string = <string>url.pathname;
-//         if (pfad == "/html") {
-//             for (let key in url.query) {
-//                 _response.write(key + ": " + url.query[key] + "<br/>");
-//             }
-//         }
-//         else if (pfad == "/json") {
-//             let jsonString: string = JSON.stringify(url.query);
-//             console.log(jsonString);
-//             _response.write(jsonString);
-//         }
-//     }
-//     _response.end();
-// }
-
-
-
-
-
 
 // import * as Mongo from "mongodb";
 

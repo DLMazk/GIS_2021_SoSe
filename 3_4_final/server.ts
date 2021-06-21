@@ -18,6 +18,7 @@ export namespace Aufgabe3_4 {
 
     startServer(port);
     connectToMongo(dblink);
+    
 
     function startServer(_port: number | string): void {
 
@@ -75,7 +76,7 @@ export namespace Aufgabe3_4 {
                 infoFeedback.deleteOne({ "_id": new Mongo.ObjectId(url.query._id.toString()) });
                 console.log("_id: " + new Mongo.ObjectId(url.query._id.toString()));
 
-                _response.write("Neues Feedback wurde begonnen");
+                _response.write("Feedback gelöscht");
                 await connectToMongo(dblink);
             }
         }

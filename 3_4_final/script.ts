@@ -27,7 +27,7 @@ import { Feedback } from "./interface";
 
         herokuURL();
         getFormData();
-        console.log("Gespeichert");
+        console.log("Feedback gespeichert");
         url += "/saveFeedback" + "?" + urlsearchParameters.toString();
         let response: Response = await fetch(url);
         let displayResponse: string = await response.text();
@@ -50,7 +50,7 @@ import { Feedback } from "./interface";
             serverAnswer.appendChild(divvar);
 
             let userinput: HTMLParagraphElement = document.createElement("p");
-            userinput.appendChild(document.createTextNode("Name " + query.u_input));
+            userinput.appendChild(document.createTextNode("Name: " + query.u_input));
             divvar.appendChild(userinput);
 
             let userfeedback: HTMLParagraphElement = document.createElement("p");

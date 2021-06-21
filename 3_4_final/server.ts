@@ -22,7 +22,7 @@ export namespace Aufgabe3_4 {
     function startServer(_port: number | string): void {
 
         console.log("Server wird gestartet");
-        
+
         let server: Http.Server = Http.createServer();
         server.addListener("request", handleRequest);
         server.addListener("listening", handleListen);
@@ -55,7 +55,7 @@ export namespace Aufgabe3_4 {
                 console.log(url);
                 _response.setHeader("content-type", "text/html; charset=utf-8");
                 infoFeedback.insertOne(url.query);
-                _response.write("Your feedback was saved successfully.");
+                _response.write("Feedback gespeichert");
                 await connectToMongo(dblink);
             }
 

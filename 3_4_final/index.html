@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,43 +8,32 @@
     <script>
         let exports = {};
     </script>
-    <title>Aufgabe 3.4</title>
+    <title>Abgabe3_4</title>
 </head>
 
 <body>
     <header>
     </header>
     <main>
-        <h1 class="textabove">Feedback to me</h1>
-        <p>
-        <h3 class="textabove">
-            Write your feedback about me here.
-        </h3>
-        </p>
-        <form id="feedbackform" class="feedbackformClass">
-            <fieldset>
+        <h2>Dein Feedback</h2>
+        <p></p>
+        <form>
                 <div>
-                    <legend class="uname_and_feedback">Username</legend>
-                    <textarea type="text" name="u_input" rows="1" cols="75" id="areatextname"></textarea>
+                    <legend>Name</legend>
+                    <textarea type="text" name="u_input" rows="1" cols="30"></textarea>
                 </div>
-
                 <div>
-                    <legend class="uname_and_feedback">Feedback</legend>
-                    <textarea name="feedback" rows="6" cols="75" id="areatext" required></textarea>
+                    <legend>Feedback</legend>
+                    <textarea name="feedback" rows="8" cols="60" required></textarea>
                 </div>
-
-                <button type="button" id="savefeedback" class="savefeedbackButton">Send!</button>
-                <button type="reset" id="deletefeedback" class="resetfeedbackButton">Reset textfield!</button>
-
-
-            </fieldset>
+                <button type="button" id="savefeedback">Feedback schicken</button>
+                <button type="reset" id="deleteFeedback">Neues Feedback</button>
         </form>
-        <br>
-        <button type="button" id="showfeedback">Display feedback</button>
 
-        <div id="feedback" class="feedbacksDiv">
+        <p>Im Folgenden können die bisherigen Feedbacks angezeigt werden:</p>
 
-        </div>
+        <button type="button" id="showfeedback">Feedbacks anzeigen:</button>
+        <div id="feedback"></div>
     </main>
 
 </body>

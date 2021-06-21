@@ -6,7 +6,7 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
-    let dbURL = "mongodb+srv://gis-sose-2021.veqpi.mongodb.net";
+    let dbURL = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net";
     //let dbURL: string = "mongodb://localhost:27017";
     let port = Number(process.env.PORT); //"listening" Port
     if (!port) {

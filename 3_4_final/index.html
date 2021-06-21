@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script.js" defer></script>
+    <script>
+        let exports = {};
+    </script>
+    <title>Aufgabe 3.4</title>
+</head>
+
+<body>
+    <header>
+    </header>
+    <main>
+        <h2>Dein Feedback</h2>
+        <p></p>
+        <form>
+                <div>
+                    <legend>Name</legend>
+                    <textarea type="text" name="u_input" rows="1" cols="30"></textarea>
+                </div>
+                <div>
+                    <legend>Feedback</legend>
+                    <textarea name="feedback" rows="8" cols="60" required></textarea>
+                </div>
+                <button type="button" id="savefeedback">Feedback schicken</button>
+                <button type="reset" id="deleteFeedback">Neues Feedback</button>
+        </form>
+        <p>Im Folgenden können die bisherigen Feedbacks angezeigt werden:</p>
+        <button type="button" id="showfeedback">Feedbacks anzeigen:</button>
+        <div id="feedback">
+
+        </div>
+    </main>
+
+</body>
+
+</html>

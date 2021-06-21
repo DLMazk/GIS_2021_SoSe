@@ -6,17 +6,17 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Aufgabe3_4;
 (function (Aufgabe3_4) {
-    let feedbackInformation;
+    let infoFeedback;
     let result;
-    //let databaseURL: string = "mongodb://localhost:27017"; local check
     let dblink = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net";
+    //let databaseURL: string = "mongodb://localhost:27017"; 
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
     startServer(port);
     connectToMongo(dblink);
     function startServer(_port) {
-        console.log("Starting server");
+        console.log("Server wird gestartet");
         let server = Http.createServer();
         server.addListener("request", handleRequest);
         server.addListener("listening", handleListen);
@@ -26,8 +26,8 @@ var Aufgabe3_4;
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(dblink, options);
         await mongoClient.connect();
-        feedbackInformation = mongoClient.db("Feedbacks").collection("Feedback");
-        console.log("connecting db", feedbackInformation != undefined);
+        infoFeedback = mongoClient.db("3_4").collection("Collection 3_4");
+        console.log("Verbindung zur Datenbank erstellt", infoFeedback != undefined);
     }
     function handleListen() {
         console.log("Listening");
@@ -40,22 +40,22 @@ var Aufgabe3_4;
             if (url.pathname == "/saveFeedback") {
                 console.log(url);
                 _response.setHeader("content-type", "text/html; charset=utf-8");
-                feedbackInformation.insertOne(url.query);
+                infoFeedback.insertOne(url.query);
                 _response.write("Your feedback was saved successfully.");
                 await connectToMongo(dblink);
             }
-            if (url.pathname == "/showFeedback") { // checks the url if its showfeedback and stringifies it
+            if (url.pathname == "/showFeedback") {
                 _response.setHeader("content-type", "text/html; charset=utf-8");
-                let cursor = feedbackInformation.find();
+                let cursor = infoFeedback.find();
                 result = await cursor.toArray();
                 _response.write(JSON.stringify(result));
             }
             if (url.pathname == "/deleteFeedback") {
                 console.log(url.query);
                 _response.setHeader("content-type", "text/html; charset=utf-8");
-                feedbackInformation.deleteOne({ "_id": new Mongo.ObjectId(url.query._id.toString()) });
+                infoFeedback.deleteOne({ "_id": new Mongo.ObjectId(url.query._id.toString()) });
                 console.log("_id: " + new Mongo.ObjectId(url.query._id.toString()));
-                _response.write("Feedback was deleted...");
+                _response.write("Neues Feedback wurde begonnen");
                 await connectToMongo(dblink);
             }
         }

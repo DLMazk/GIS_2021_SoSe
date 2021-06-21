@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 {
     let saveButton = document.getElementById("savefeedback");
     saveButton.addEventListener("click", ClickToSaveFeedback);
-    let showButton = document.getElementById("showfeedbacks");
+    let showButton = document.getElementById("showfeedback");
     showButton.addEventListener("click", ClickToShowFeedback);
-    let serverAnswer = document.getElementById("feedbacks");
+    let serverAnswer = document.getElementById("feedback");
     let url;
     let urlsearchParameters;
     function herokuURL() {
@@ -13,13 +13,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
     }
     function getFormData() {
         let formData = new FormData(document.forms[0]);
-        //tslint:disable-next-line: no-any
         urlsearchParameters = new URLSearchParams(formData);
     }
     async function ClickToSaveFeedback() {
         herokuURL();
         getFormData();
-        console.log("Your shit has been saved");
+        console.log("Gespeichert");
         url += "/saveFeedback" + "?" + urlsearchParameters.toString();
         let response = await fetch(url);
         let displayResponse = await response.text();
@@ -28,7 +27,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
     async function ClickToShowFeedback() {
         herokuURL();
         serverAnswer.innerHTML = "";
-        console.log("The world..");
+        console.log("Erfolg!");
         url += "/showFeedback" + "?";
         let response = await fetch(url);
         let showresponse = await response.json();
@@ -37,7 +36,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
             let divvar = document.createElement("div");
             serverAnswer.appendChild(divvar);
             let userinput = document.createElement("p");
-            userinput.appendChild(document.createTextNode("For business inquiries please contact " + query.u_input));
+            userinput.appendChild(document.createTextNode("Name " + query.u_input));
             divvar.appendChild(userinput);
             let userfeedback = document.createElement("p");
             userfeedback.appendChild(document.createTextNode(query.feedback));

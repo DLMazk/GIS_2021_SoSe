@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node 3_4/server/dbserver.js"
+    "start": "node 3_4_final/server.js"
   },
   "repository": {
     "type": "git",

@@ -35,7 +35,7 @@ export namespace Aufgabe3_4 {
         console.log("I hear voices!");
         _response.write("Hi");
         _response.setHeader("content-type", "text/html; charset=utf-8");    //HTML Head festlegen
-        _response.setHeader("Access-Control-Allow-Origin", "*");    //Alle dürfen darauf zugreifen
+        _response.setHeader("Access-Control-Allow-Origin", "*");            //Alle dürfen darauf zugreifen
 
         if (_request.url) {
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);    //Umwandeln in Array
@@ -62,7 +62,6 @@ export namespace Aufgabe3_4 {
         let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-
         let data: Mongo.Collection = mongoClient.db("3_4").collection("Daten");     //auf Datenbank bzw. Collection zugreifen
         let cursor: Mongo.Cursor = data.find();
         let inhalt: Daten[] = await cursor.toArray();

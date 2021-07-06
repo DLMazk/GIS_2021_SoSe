@@ -18,7 +18,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
     async function ClickToSaveFeedback() {
         herokuURL();
         getFormData();
-        console.log("Gespeichert");
+        console.log("Feedback gespeichert");
         url += "/saveFeedback" + "?" + urlsearchParameters.toString();
         let response = await fetch(url);
         let displayResponse = await response.text();
@@ -36,7 +36,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
             let divvar = document.createElement("div");
             serverAnswer.appendChild(divvar);
             let userinput = document.createElement("p");
-            userinput.appendChild(document.createTextNode("Name " + query.u_input));
+            userinput.appendChild(document.createTextNode("Name: " + query.u_input));
             divvar.appendChild(userinput);
             let userfeedback = document.createElement("p");
             userfeedback.appendChild(document.createTextNode(query.feedback));

@@ -20,11 +20,6 @@ namespace Aufgabe2_5 {
 
     
 
-
-
-
-
-
     function openNextSite(): void {
 
         if (window.location.href.includes("index.html")) {

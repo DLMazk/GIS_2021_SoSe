@@ -41,7 +41,7 @@ var Aufgabe3_4;
                 console.log(url);
                 _response.setHeader("content-type", "text/html; charset=utf-8");
                 infoFeedback.insertOne(url.query);
-                _response.write("Your feedback was saved successfully.");
+                _response.write("Feedback gespeichert");
                 await connectToMongo(dblink);
             }
             if (url.pathname == "/showFeedback") {
@@ -55,12 +55,12 @@ var Aufgabe3_4;
                 _response.setHeader("content-type", "text/html; charset=utf-8");
                 infoFeedback.deleteOne({ "_id": new Mongo.ObjectId(url.query._id.toString()) });
                 console.log("_id: " + new Mongo.ObjectId(url.query._id.toString()));
-                _response.write("Neues Feedback wurde begonnen");
+                _response.write("Feedback gelöscht");
                 await connectToMongo(dblink);
             }
         }
         _response.end();
-        console.log(_response + " I cant take it anymore, just go already!");
+        console.log(_response);
     }
 })(Aufgabe3_4 = exports.Aufgabe3_4 || (exports.Aufgabe3_4 = {}));
 //# sourceMappingURL=server.js.map

@@ -1,18 +1,18 @@
-import { ObjectID } from "mongodb";
+// import { ObjectID } from "mongodb";
 import { Cards } from "./interface";
 
 {
 
-    let pick: HTMLElement = <HTMLElement>document.getElementById("choose");
-    let serverAnswer: HTMLDivElement = <HTMLDivElement>document.getElementById("choose");
+    
+    let pick: HTMLDivElement = <HTMLDivElement>document.getElementById("choose");
     let url: string;
-    let urlsearchParameters: URLSearchParams;
+    // let urlsearchParameters: URLSearchParams;
 
-    function getFormData(): void {
+    // function getFormData(): void {
 
-        let formData: FormData = new FormData(document.forms[0]);
-        urlsearchParameters = new URLSearchParams(<any>formData);
-    }
+    //     let formData: FormData = new FormData(document.forms[0]);
+    //     urlsearchParameters = new URLSearchParams(<any>formData);
+    // }
 
     function herokuURL(): void {
 
@@ -23,7 +23,7 @@ import { Cards } from "./interface";
     async function showingCards(): Promise<void> {
 
         herokuURL();
-        serverAnswer.innerHTML = "";
+        pick.innerHTML = "";
         console.log("So far so good!");
         url += "/showCards" + "?";
         let response: Response = await fetch(url);
@@ -34,7 +34,7 @@ import { Cards } from "./interface";
             let query: Cards = showresponse[i]; 
 
             let div1: HTMLDivElement = <HTMLDivElement> document.createElement("div");
-            serverAnswer.appendChild(div1);
+            pick.appendChild(div1);
 
             let picture: HTMLElement = <HTMLElement>document.createElement("img");
             picture.setAttribute("src", query.picURL);

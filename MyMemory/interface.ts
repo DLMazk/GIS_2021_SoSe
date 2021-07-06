@@ -7,11 +7,11 @@ export interface Cards {
 
 
 }
-export interface Scores {
+// export interface Scores {
 
-    id: ObjectID;
-    name: string;
-    time: string;
+//     id: ObjectID;
+//     name: string;
+//     time: string;
 
 
-}
+// }

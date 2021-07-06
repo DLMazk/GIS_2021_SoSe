@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Aufgabe3_2 = void 0;
-const Http = require("http");
-const Url = require("url");
-var Aufgabe3_2;
+import * as Http from "http";
+import * as Url from "url";
+export var Aufgabe3_2;
 (function (Aufgabe3_2) {
     console.log("Starting server");
     let port = Number(process.env.PORT);
@@ -37,5 +34,5 @@ var Aufgabe3_2;
         }
         _response.end();
     }
-})(Aufgabe3_2 = exports.Aufgabe3_2 || (exports.Aufgabe3_2 = {}));
+})(Aufgabe3_2 || (Aufgabe3_2 = {}));
 //# sourceMappingURL=server.js.map

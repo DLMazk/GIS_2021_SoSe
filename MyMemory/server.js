@@ -1,10 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Memory = void 0;
-const Http = require("http");
-const Url = require("url");
-const Mongo = require("mongodb");
-var Memory;
+import * as Http from "http";
+import * as Url from "url";
+import * as Mongo from "mongodb";
+// import { url } from "inspector";
+export var Memory;
 (function (Memory) {
     let cardsCollection;
     let result;
@@ -46,5 +44,5 @@ var Memory;
         _response.end();
         console.log(_response);
     }
-})(Memory = exports.Memory || (exports.Memory = {}));
+})(Memory || (Memory = {}));
 //# sourceMappingURL=server.js.map

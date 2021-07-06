@@ -30,12 +30,12 @@ export namespace Aufgabe3_4 {
         server.listen(_port);
     }
 
-    async function connectToMongo(dblink: string): Promise<void> {
+    async function connectToMongo(_dblink: string): Promise<void> {
         let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(dblink, options);
+        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_dblink, options);
         await mongoClient.connect();
         infoFeedback = mongoClient.db("3_4").collection("Collection 3_4");
-        console.log("Verbindung zur Datenbank erstellt", infoFeedback != undefined);
+        console.log("Verbindung zur Datenbank: ", infoFeedback != undefined);
     }
 
     function handleListen(): void {

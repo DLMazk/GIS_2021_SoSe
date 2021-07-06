@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Memory = void 0;
 const Http = require("http");
 const Url = require("url");
+const Mongo = require("mongodb");
 var Memory;
 (function (Memory) {
     let cardsCollection;
@@ -12,11 +13,20 @@ var Memory;
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
+    startServer(port);
+    connectMongo(dblink);
     function startServer(_port) {
         console.log("Server wird gestartet");
         let server = Http.createServer();
         server.addListener("request", handleRequest);
         server.addListener("listening", handleListen);
+    }
+    async function connectMongo(_dblink) {
+        let options = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient = new Mongo.MongoClient(_dblink, options);
+        await mongoClient.connect();
+        cardsCollection = mongoClient.db("Memory").collection("Cards");
+        console.log("Verbindung augebaut: ", cardsCollection != undefined);
     }
     function handleListen() {
         console.log("I am Listening!");

@@ -6,12 +6,12 @@ import { Cards } from "./interface";
     let pick: HTMLElement = <HTMLElement>document.getElementById("choose");
     let serverAnswer: HTMLDivElement = <HTMLDivElement>document.getElementById("choose");
     let url: string;
-
+    let urlsearchParameters: URLSearchParams;
 
     function getFormData(): void {
 
         let formData: FormData = new FormData(document.forms[0]);
-
+        urlsearchParameters = new URLSearchParams(<any>formData);
     }
 
     function herokuURL(): void {

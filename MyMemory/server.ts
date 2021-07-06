@@ -17,6 +17,12 @@ export namespace Memory {
     if (!port)
         port = 8100;
 
+
+    startServer(port);
+    connectMongo(dblink);
+
+
+
     function startServer(_port: number | string): void {
 
         console.log("Server wird gestartet");
@@ -25,6 +31,15 @@ export namespace Memory {
         server.addListener("request", handleRequest);
         server.addListener("listening", handleListen);
 
+    }
+
+    async function connectMongo(_dblink: string): Promise<void> {
+
+        let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_dblink, options);
+        await mongoClient.connect();
+        cardsCollection = mongoClient.db("Memory").collection("Cards");
+        console.log("Verbindung augebaut: ", cardsCollection != undefined);
     }
 
     function handleListen(): void {

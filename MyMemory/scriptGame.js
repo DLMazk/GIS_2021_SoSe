@@ -4,8 +4,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
     let pick = document.getElementById("choose");
     let serverAnswer = document.getElementById("choose");
     let url;
+    let urlsearchParameters;
     function getFormData() {
         let formData = new FormData(document.forms[0]);
+        urlsearchParameters = new URLSearchParams(formData);
     }
     function herokuURL() {
         url = "https://dlmazk.herokuapp.com";

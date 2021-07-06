@@ -22,12 +22,12 @@ var Aufgabe3_4;
         server.addListener("listening", handleListen);
         server.listen(_port);
     }
-    async function connectToMongo(dblink) {
+    async function connectToMongo(_dblink) {
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient = new Mongo.MongoClient(dblink, options);
+        let mongoClient = new Mongo.MongoClient(_dblink, options);
         await mongoClient.connect();
         infoFeedback = mongoClient.db("3_4").collection("Collection 3_4");
-        console.log("Verbindung zur Datenbank erstellt", infoFeedback != undefined);
+        console.log("Verbindung zur Datenbank: ", infoFeedback != undefined);
     }
     function handleListen() {
         console.log("Listening");

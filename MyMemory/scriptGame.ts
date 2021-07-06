@@ -1,7 +1,7 @@
 import { ObjectID } from "mongodb";
 import { Cards } from "./interface";
 
-namespace Memory {
+{
 
     let pick: HTMLElement = <HTMLElement>document.getElementById("choose");
     let serverAnswer: HTMLDivElement = <HTMLDivElement>document.getElementById("choose");
@@ -20,18 +20,27 @@ namespace Memory {
         
     }
 
-    async function showing(): Promise<void> {
+    async function showingCards(): Promise<void> {
 
         herokuURL();
         serverAnswer.innerHTML = "";
         console.log("So far so good!");
-        url += "/showFeedback" + "?";
+        url += "/showCards" + "?";
         let response: Response = await fetch(url);
         let showresponse: Cards[] = await response.json();
 
         for (let i in showresponse) {
 
-            let query: Cards = showresponse[i];
+            let query: Cards = showresponse[i]; 
+
+            let div1: HTMLDivElement = <HTMLDivElement> document.createElement("div");
+            serverAnswer.appendChild(div1);
+
+            let picture: HTMLElement = <HTMLElement>document.createElement("img");
+            picture.setAttribute("src", query.picURL);
+            div1.appendChild(picture);
+
+
 
 
             // let img: HTMLElement = document.createElement("img");
@@ -40,7 +49,7 @@ namespace Memory {
         }
 
     }
-    showing();
-    
+    showingCards();
+
 
 }

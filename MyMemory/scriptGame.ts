@@ -28,8 +28,8 @@ function getFormData(): void {
 
 function herokuURL(): void {
 
-    //url = "https://dlmazk.herokuapp.com";
-    url = "http://localhost:8100";
+    url = "https://dlmazk.herokuapp.com";
+    //url = "http://localhost:8100";
 
 }
 

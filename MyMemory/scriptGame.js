@@ -15,8 +15,8 @@ function getFormData() {
     urlsearchParameters = new URLSearchParams(formData);
 }
 function herokuURL() {
-    //url = "https://dlmazk.herokuapp.com";
-    url = "http://localhost:8100";
+    url = "https://dlmazk.herokuapp.com";
+    //url = "http://localhost:8100";
 }
 async function showingCards() {
     herokuURL();

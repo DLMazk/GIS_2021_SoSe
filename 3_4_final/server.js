@@ -9,7 +9,7 @@ var Aufgabe3_4;
     let infoFeedback;
     let result;
     let dblink = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net";
-    //let databaseURL: string = "mongodb://localhost:27017"; 
+    //let dblink: string = "mongodb://localhost:27017"; 
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;

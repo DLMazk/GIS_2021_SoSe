@@ -4,18 +4,20 @@ exports.Memory = void 0;
 const Http = require("http");
 const Url = require("url");
 const Mongo = require("mongodb");
-// import { url } from "inspector";
 var Memory;
 (function (Memory) {
     let cardsCollection;
     let result;
-    let dblink = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net";
+    let dblink = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net/Memory?retryWrites=true&w=majority";
     //let dblink: string = "mongodb://localhost:27017"; 
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
-    startServer(port);
-    connectMongo(dblink);
+    start();
+    async function start() {
+        await connectMongo(dblink);
+        startServer(port);
+    }
     function startServer(_port) {
         console.log("Server wird gestartet");
         let server = Http.createServer();
@@ -28,7 +30,7 @@ var Memory;
         let mongoClient = new Mongo.MongoClient(_dblink, options);
         await mongoClient.connect();
         cardsCollection = mongoClient.db("Memory").collection("Cards");
-        console.log("Verbindung augebaut: ", cardsCollection != undefined);
+        console.log("Verbindung zu Mongo augebaut: ", cardsCollection != undefined);
     }
     function handleListen() {
         console.log("I am Listening!");

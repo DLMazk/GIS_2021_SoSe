@@ -1,15 +1,14 @@
 import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
-import { Cards } from "./interface";
-// import { url } from "inspector";
+
 
 export namespace Memory {
 
     let cardsCollection: Mongo.Collection;
     let result: Cards[];
 
-    let dblink: string = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net";
+    let dblink: string = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net/Memory?retryWrites=true&w=majority";
     //let dblink: string = "mongodb://localhost:27017"; 
 
     let port: number = Number(process.env.PORT);
@@ -17,11 +16,13 @@ export namespace Memory {
     if (!port)
         port = 8100;
 
+    start();
 
-    startServer(port);
+    async function start(): Promise<void> {
 
-    connectMongo(dblink);
-
+        await connectMongo(dblink);
+        startServer(port);
+    }
 
     function startServer(_port: number | string): void {
 
@@ -39,7 +40,7 @@ export namespace Memory {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_dblink, options);
         await mongoClient.connect();
         cardsCollection = mongoClient.db("Memory").collection("Cards");
-        console.log("Verbindung augebaut: ", cardsCollection != undefined);
+        console.log("Verbindung zu Mongo augebaut: ", cardsCollection != undefined);
     }
 
     function handleListen(): void {

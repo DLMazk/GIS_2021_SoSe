@@ -1,5 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+// export interface Scores {
+//     id: ObjectID;
+//     name: string;
+//     time: string;
+// }
 let showButton = document.getElementById("start");
 showButton.addEventListener("click", showingCards);
 let pick = document.getElementById("choose");
@@ -11,13 +15,14 @@ function getFormData() {
     urlsearchParameters = new URLSearchParams(formData);
 }
 function herokuURL() {
-    url = "https://dlmazk.herokuapp.com";
+    //url = "https://dlmazk.herokuapp.com";
+    url = "http://localhost:8100";
 }
 async function showingCards() {
     herokuURL();
     pick.innerHTML = "";
     console.log("So far so good!");
-    url += "/showCards" + "?";
+    url += "/showCards";
     let response = await fetch(url);
     let showresponse = await response.json();
     for (let i in showresponse) {

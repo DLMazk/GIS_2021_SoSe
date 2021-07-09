@@ -1,6 +1,16 @@
-// import { ObjectID } from "mongodb";
-import { Cards } from "./interface";
 
+
+
+interface Cards {
+
+    picURL: string;
+}
+// export interface Scores {
+
+//     id: ObjectID;
+//     name: string;
+//     time: string;
+// }
 
 let showButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
 showButton.addEventListener("click", showingCards);
@@ -18,7 +28,8 @@ function getFormData(): void {
 
 function herokuURL(): void {
 
-    url = "https://dlmazk.herokuapp.com";
+    //url = "https://dlmazk.herokuapp.com";
+    url = "http://localhost:8100";
 
 }
 
@@ -27,7 +38,7 @@ async function showingCards(): Promise<void> {
     herokuURL();
     pick.innerHTML = "";
     console.log("So far so good!");
-    url += "/showCards" + "?";
+    url += "/showCards";
     let response: Response = await fetch(url);
     let showresponse: Cards[] = await response.json();
 

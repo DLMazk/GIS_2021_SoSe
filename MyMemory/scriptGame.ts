@@ -42,9 +42,6 @@ async function showingCards(): Promise<void> {
         picture.setAttribute("src", query.picURL);
         div1.appendChild(picture);
 
-
-
-
         // let img: HTMLElement = document.createElement("img");
         // img.setAttribute("src", _gewaehltes[i].picURL);
         // pick.appendChild(img);

@@ -25,6 +25,7 @@ async function showingCards() {
     url += "/showCards";
     let response = await fetch(url);
     let showresponse = await response.json();
+    console.log("fetch erfolgreich!?");
     for (let i in showresponse) {
         let query = showresponse[i];
         let div1 = document.createElement("div");

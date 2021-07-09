@@ -41,6 +41,7 @@ async function showingCards(): Promise<void> {
     url += "/showCards";
     let response: Response = await fetch(url);
     let showresponse: Cards[] = await response.json();
+    console.log("fetch erfolgreich!?");
 
     for (let i in showresponse) {
 

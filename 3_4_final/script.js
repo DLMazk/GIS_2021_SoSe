@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 {
     let saveButton = document.getElementById("savefeedback");
     saveButton.addEventListener("click", ClickToSaveFeedback);
@@ -11,6 +13,7 @@
     }
     function getFormData() {
         let formData = new FormData(document.forms[0]);
+        // tslint:disable-next-line: no-any
         urlsearchParameters = new URLSearchParams(formData);
     }
     async function ClickToSaveFeedback() {
@@ -59,5 +62,4 @@
         console.log(showresponse);
     }
 }
-export {};
 //# sourceMappingURL=script.js.map

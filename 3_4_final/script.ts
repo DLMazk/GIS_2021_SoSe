@@ -21,6 +21,7 @@ import { Feedback } from "./interface";
     function getFormData(): void {
 
         let formData: FormData = new FormData(document.forms[0]);
+        // tslint:disable-next-line: no-any
         urlsearchParameters = new URLSearchParams(<any>formData);
     }
 

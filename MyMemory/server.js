@@ -1,8 +1,11 @@
-import * as Http from "http";
-import * as Url from "url";
-import * as Mongo from "mongodb";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Memory = void 0;
+const Http = require("http");
+const Url = require("url");
+const Mongo = require("mongodb");
 // import { url } from "inspector";
-export var Memory;
+var Memory;
 (function (Memory) {
     let cardsCollection;
     let result;
@@ -44,5 +47,5 @@ export var Memory;
         _response.end();
         console.log(_response);
     }
-})(Memory || (Memory = {}));
+})(Memory = exports.Memory || (exports.Memory = {}));
 //# sourceMappingURL=server.js.map

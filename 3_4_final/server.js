@@ -1,7 +1,10 @@
-import * as Http from "http";
-import * as Url from "url";
-import * as Mongo from "mongodb";
-export var Aufgabe3_4;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Aufgabe3_4 = void 0;
+const Http = require("http");
+const Url = require("url");
+const Mongo = require("mongodb");
+var Aufgabe3_4;
 (function (Aufgabe3_4) {
     let infoFeedback;
     let result;
@@ -59,5 +62,5 @@ export var Aufgabe3_4;
         _response.end();
         console.log(_response);
     }
-})(Aufgabe3_4 || (Aufgabe3_4 = {}));
+})(Aufgabe3_4 = exports.Aufgabe3_4 || (exports.Aufgabe3_4 = {}));
 //# sourceMappingURL=server.js.map

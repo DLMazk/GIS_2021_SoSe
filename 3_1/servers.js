@@ -1,5 +1,8 @@
-import * as Http from "http";
-export var Aufgabe3_1;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Aufgabe3_1 = void 0;
+const Http = require("http");
+var Aufgabe3_1;
 (function (Aufgabe3_1) {
     console.log("Starting server"); //Konsolenausgabe
     let port = Number(process.env.PORT); //Port ist "Hafen" 
@@ -20,5 +23,5 @@ export var Aufgabe3_1;
         _response.write(_request.url); //was wird zurückgegeben: Als Antwort auf die Anfrage 
         _response.end(); //Antwort fertig und zurückschicken 
     }
-})(Aufgabe3_1 || (Aufgabe3_1 = {}));
+})(Aufgabe3_1 = exports.Aufgabe3_1 || (exports.Aufgabe3_1 = {}));
 //# sourceMappingURL=servers.js.map

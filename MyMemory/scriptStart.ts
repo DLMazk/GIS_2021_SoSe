@@ -1,4 +1,4 @@
-namespace Memory{
+namespace Memory {
     
 let startGame: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttStart");
 startGame.addEventListener("click", startingGame);

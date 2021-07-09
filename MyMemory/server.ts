@@ -10,7 +10,7 @@ export namespace Memory {
     let result: Cards[];
 
     let dblink: string = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net";
-    //let databaseURL: string = "mongodb://localhost:27017"; 
+    //let dblink: string = "mongodb://localhost:27017"; 
 
     let port: number = Number(process.env.PORT);
 
@@ -19,8 +19,8 @@ export namespace Memory {
 
 
     startServer(port);
-    connectMongo(dblink);
 
+    connectMongo(dblink);
 
 
     function startServer(_port: number | string): void {
@@ -30,7 +30,7 @@ export namespace Memory {
         let server: Http.Server = Http.createServer();
         server.addListener("request", handleRequest);
         server.addListener("listening", handleListen);
-
+        server.listen(_port);
     }
 
     async function connectMongo(_dblink: string): Promise<void> {
@@ -50,20 +50,22 @@ export namespace Memory {
         console.log("Aaaaaah, I hear Voices!");
         console.log(_request.url);
 
-        let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-        let path: string = <string>url.pathname;
-
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access.Control_Allow-Origin", "*");
 
-        if (path == "/showCards") {
+        if (_request.url) {
 
-            let cursor: Mongo.Cursor = cardsCollection.find();
-            result = await cursor.toArray();
-            _response.write(JSON.stringify(result));
+            let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
+            let path: string = <string>url.pathname;
 
+            if (path == "/showCards") {
+
+                let cursor: Mongo.Cursor = cardsCollection.find();
+                result = await cursor.toArray();
+                _response.write(JSON.stringify(result));
+
+            }
         }
-
         _response.end();
         console.log(_response);
 

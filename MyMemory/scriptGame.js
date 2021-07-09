@@ -1,12 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+let showButton = document.getElementById("start");
+showButton.addEventListener("click", showingCards);
 let pick = document.getElementById("choose");
 let url;
-// let urlsearchParameters: URLSearchParams;
-// function getFormData(): void {
-//     let formData: FormData = new FormData(document.forms[0]);
-//     urlsearchParameters = new URLSearchParams(<any>formData);
-// }
+let urlsearchParameters;
+function getFormData() {
+    let formData = new FormData(document.forms[0]);
+    // tslint:disable-next-line: no-any
+    urlsearchParameters = new URLSearchParams(formData);
+}
 function herokuURL() {
     url = "https://dlmazk.herokuapp.com";
 }
@@ -29,5 +32,4 @@ async function showingCards() {
         // pick.appendChild(img);
     }
 }
-showingCards();
 //# sourceMappingURL=scriptGame.js.map

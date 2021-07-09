@@ -2,17 +2,19 @@
 import { Cards } from "./interface";
 
 
-
+let showButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
+showButton.addEventListener("click", showingCards);
 
 let pick: HTMLDivElement = <HTMLDivElement>document.getElementById("choose");
 let url: string;
-// let urlsearchParameters: URLSearchParams;
+let urlsearchParameters: URLSearchParams;
 
-// function getFormData(): void {
+function getFormData(): void {
 
-//     let formData: FormData = new FormData(document.forms[0]);
-//     urlsearchParameters = new URLSearchParams(<any>formData);
-// }
+    let formData: FormData = new FormData(document.forms[0]);
+    // tslint:disable-next-line: no-any
+    urlsearchParameters = new URLSearchParams(<any>formData);
+}
 
 function herokuURL(): void {
 
@@ -49,6 +51,6 @@ async function showingCards(): Promise<void> {
     }
 
 }
-showingCards();
+
 
 

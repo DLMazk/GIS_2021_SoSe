@@ -10,7 +10,7 @@ var Memory;
     let cardsCollection;
     let result;
     let dblink = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net";
-    //let databaseURL: string = "mongodb://localhost:27017"; 
+    //let dblink: string = "mongodb://localhost:27017"; 
     let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
@@ -21,6 +21,7 @@ var Memory;
         let server = Http.createServer();
         server.addListener("request", handleRequest);
         server.addListener("listening", handleListen);
+        server.listen(_port);
     }
     async function connectMongo(_dblink) {
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
@@ -35,14 +36,16 @@ var Memory;
     async function handleRequest(_request, _response) {
         console.log("Aaaaaah, I hear Voices!");
         console.log(_request.url);
-        let url = Url.parse(_request.url, true);
-        let path = url.pathname;
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access.Control_Allow-Origin", "*");
-        if (path == "/showCards") {
-            let cursor = cardsCollection.find();
-            result = await cursor.toArray();
-            _response.write(JSON.stringify(result));
+        if (_request.url) {
+            let url = Url.parse(_request.url, true);
+            let path = url.pathname;
+            if (path == "/showCards") {
+                let cursor = cardsCollection.find();
+                result = await cursor.toArray();
+                _response.write(JSON.stringify(result));
+            }
         }
         _response.end();
         console.log(_response);

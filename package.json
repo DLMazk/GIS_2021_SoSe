@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node MyMemory/serverGame.js"
+    "start": "node MyMemory/scriptGame.js"
   },
   "repository": {
     "type": "git",

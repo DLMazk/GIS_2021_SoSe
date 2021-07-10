@@ -6,6 +6,7 @@ import * as Mongo from "mongodb";
 export namespace Memory {
 
     let cardsCollection: Mongo.Collection;
+    let scoreCollection: Mongo.Collection;
     let result: Cards[];
 
     let dblink: string = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net/Memory?retryWrites=true&w=majority";
@@ -40,7 +41,9 @@ export namespace Memory {
         let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_dblink, options);
         await mongoClient.connect();
         cardsCollection = mongoClient.db("Memory").collection("Cards");
-        console.log("Verbindung zu Mongo augebaut: ", cardsCollection != undefined);
+        scoreCollection = mongoClient.db("Memory").collection("Scores");
+        console.log("Verbindung zu Mongo Cards augebaut: ", cardsCollection != undefined);
+        console.log("Verbindung zu Mongo Scores augebaut: ", scoreCollection != undefined);
     }
 
     function handleListen(): void {
@@ -52,7 +55,7 @@ export namespace Memory {
         console.log(_request.url);
 
         _response.setHeader("content-type", "text/html; charset=utf-8");
-        _response.setHeader("Access.Control_Allow-Origin", "*");
+        _response.setHeader("Access-Control-Allow-Origin", "*");
 
         if (_request.url) {
 
@@ -62,6 +65,14 @@ export namespace Memory {
             if (path == "/showCards") {
 
                 let cursor: Mongo.Cursor = cardsCollection.find();
+                result = await cursor.toArray();
+                _response.write(JSON.stringify(result));
+
+            }
+
+            if (path == "/showTopScores") {
+
+                let cursor: Mongo.Cursor = scoreCollection.find();
                 result = await cursor.toArray();
                 _response.write(JSON.stringify(result));
 

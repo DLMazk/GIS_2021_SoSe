@@ -87,23 +87,5 @@ var Aufgabe2_5;
             previousElement.appendChild(img);
         }
     }
-    // //Auswahl treffen
-    // function auswaehlen(_gewaehltes: Eis): void {
-    //     const gewaehltes: Eis[] = waehlen();
-    //     // let myKeys: String[] = Object.keys(_gewaehltes);
-    //     let myValues: EisWahl[][] = Object.values(_gewaehltes);
-    //     for (let i: number = 0; i < myValues.length; i++) {
-    //         //console.log(myKeys[i]);
-    //         for (let h: number = 0; h < myValues.length; h++) {
-    //             //console.log(myValues);
-    //             let img: HTMLElement = document.createElement("img");
-    //             img.setAttribute("src", myValues[i][h].dateiName);
-    //             img.addEventListener("click", function (): void { speichern(myValues[i][h].dateiName); });
-    //             img.addEventListener("click", openNextSite);
-    //             img.id = myValues[i][h].imageID;
-    //             previousElement.appendChild(img);
-    //         }
-    //     }
-    // }
 })(Aufgabe2_5 || (Aufgabe2_5 = {}));
 //# sourceMappingURL=script.js.map

@@ -1,11 +1,7 @@
 "use strict";
-// export interface Scores {
-//     id: ObjectID;
-//     name: string;
-//     time: string;
-// }
 let showButton = document.getElementById("start");
 showButton.addEventListener("click", showingCards);
+let timer = document.getElementById("timer");
 let pick = document.getElementById("choose");
 let url;
 let urlsearchParameters;
@@ -15,8 +11,10 @@ function getFormData() {
     urlsearchParameters = new URLSearchParams(formData);
 }
 function herokuURL() {
-    url = "https://dlmazk.herokuapp.com";
-    //url = "http://localhost:8100";
+    //url = "https://dlmazk.herokuapp.com";
+    url = "http://localhost:8100";
+}
+function takingTime() {
 }
 async function showingCards() {
     herokuURL();
@@ -25,17 +23,24 @@ async function showingCards() {
     url += "/showCards";
     let response = await fetch(url);
     let showresponse = await response.json();
-    console.log("fetch erfolgreich!?");
-    for (let i in showresponse) {
+    //console.log("fetch erfolgreich!?");
+    for (let i = 0; i < showresponse.length; i++) {
         let query = showresponse[i];
-        let div1 = document.createElement("div");
-        pick.appendChild(div1);
+        // let div1: HTMLDivElement = <HTMLDivElement>document.createElement("div");
+        // pick.appendChild(div1);
         let picture = document.createElement("img");
         picture.setAttribute("src", query.picURL);
-        div1.appendChild(picture);
-        // let img: HTMLElement = document.createElement("img");
-        // img.setAttribute("src", _gewaehltes[i].picURL);
-        // pick.appendChild(img);
+        picture.addEventListener("click", function () { turnCard(query.picURL); });
+        picture.addEventListener("click", compare);
+        pick.appendChild(picture);
+    }
+    function turnCard(_picURL) {
+        sessionStorage.setItem("0", _picURL);
+    }
+    function compare() {
+    }
+    function saveTime(_name, _time) {
+        sessionStorage.setItem("0", _name);
     }
 }
 //# sourceMappingURL=scriptGame.js.map

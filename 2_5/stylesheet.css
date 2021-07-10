@@ -1,7 +1,7 @@
 :root {
 
     --clr-neon: hsl(317 100% 54%);
-    --clr-bg:hsl(323 21& 16%);
+    --clr-bg: hsl(323 21& 16%);
 
 }
 
@@ -12,7 +12,7 @@ body{
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 1000px;
     margin: auto;
-    display:grid;
+    display: grid;
     place-items: center;
     
 }

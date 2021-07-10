@@ -9,6 +9,9 @@ openAdmin.addEventListener("click", openingAdmin);
 let openScore: HTMLButtonElement = <HTMLButtonElement>document.getElementById("buttScore");
 openScore.addEventListener("click", openingScore);
 
+
+
+
 function startingGame(): void {
     window.open("Spielseite.html", "_self");
 }

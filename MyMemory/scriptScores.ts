@@ -7,8 +7,13 @@ interface Scores {
 
 let top10: HTMLDivElement = <HTMLDivElement>document.getElementById("topScores");
 
+let sendButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("sendScore");
+sendButton.addEventListener("click", sendMyScore);
+
+let showAnswer: HTMLDivElement = <HTMLDivElement>document.getElementById("sendedScore");
+
 let urlScore: string;
-//let urlsearchParameters: URLSearchParams;
+let urlsearchParametersScore: URLSearchParams;
 
 showTop10();
 
@@ -19,10 +24,24 @@ function herokuURLScore(): void {
 
 }
 
-function showMySocore(): void {
+function getFormDataScore(): void {
 
-    
-    sessionStorage.getItem("0");
+    let formData: FormData = new FormData(document.forms[0]);
+    // tslint:disable-next-line: no-any
+    urlsearchParametersScore = new URLSearchParams(<any>formData);
+}
+
+async function sendMyScore(): Promise<void> {
+
+    // sessionStorage.getItem("0");
+    herokuURLScore();
+    getFormDataScore();
+    console.log("Score gespeichert");
+    urlScore += "/sendScore" + "?" + urlsearchParametersScore.toString();
+    let response: Response = await fetch(urlScore);
+    let displayResponse: string = await response.text();
+    showAnswer.innerText = displayResponse;
+    console.log(showAnswer);
 
 
 }
@@ -47,5 +66,7 @@ async function showTop10(): Promise<void> {
         top10.appendChild(score);
 
     }
+
+
 
 }

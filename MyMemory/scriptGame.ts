@@ -1,6 +1,7 @@
 interface Cards {
 
     picURL: string;
+
 }
 
 
@@ -8,11 +9,13 @@ interface Cards {
 
 let showButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
 showButton.addEventListener("click", showingCards);
+showButton.addEventListener("click", showingCards);
+
 
 let timer: HTMLElement = <HTMLElement>document.getElementById("timer");
 
 
-let pick: HTMLDivElement = <HTMLDivElement>document.getElementById("choose");
+let pick: HTMLDivElement = <HTMLDivElement>document.getElementById("picturesGame");
 let url: string;
 let urlsearchParameters: URLSearchParams;
 
@@ -59,30 +62,30 @@ async function showingCards(): Promise<void> {
         picture.addEventListener("click", compare);
         pick.appendChild(picture);
 
-
     }
+}
 
-    function turnCard(_picURL: string): void {
-        sessionStorage.setItem("0", _picURL);
-
-    }
-
-
-
-
-    function compare(): void {
-
-    }
-
-    function saveTime(_name: string, _time: string): void {
-
-        sessionStorage.setItem("0", _name);
-
-    }
-
-
+function turnCard(_picURL: string): void {
+    sessionStorage.setItem("0", _picURL);
 
 }
+
+
+
+
+function compare(): void {
+
+}
+
+function saveTime(_name: string, _time: string): void {
+
+    sessionStorage.setItem("0", _name);
+
+}
+
+
+
+
 
 
 

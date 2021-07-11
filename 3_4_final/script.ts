@@ -34,6 +34,7 @@ import { Feedback } from "./interface";
         let response: Response = await fetch(url);
         let displayResponse: string = await response.text();
         serverAnswer.innerText = displayResponse;
+        
     }
 
     async function ClickToShowFeedback(): Promise<void> {

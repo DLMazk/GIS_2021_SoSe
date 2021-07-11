@@ -77,6 +77,15 @@ export namespace Memory {
                 _response.write(JSON.stringify(result));
 
             }
+
+            if (path == "/sendScore") {
+
+                console.log(url);
+                scoreCollection.insertOne(url.query);
+                _response.write("Score gespeichert");
+                await connectMongo(dblink);
+
+            }
         }
         _response.end();
         console.log(_response);

@@ -1,8 +1,9 @@
 "use strict";
 let showButton = document.getElementById("start");
 showButton.addEventListener("click", showingCards);
+showButton.addEventListener("click", showingCards);
 let timer = document.getElementById("timer");
-let pick = document.getElementById("choose");
+let pick = document.getElementById("picturesGame");
 let url;
 let urlsearchParameters;
 function getFormData() {
@@ -34,13 +35,13 @@ async function showingCards() {
         picture.addEventListener("click", compare);
         pick.appendChild(picture);
     }
-    function turnCard(_picURL) {
-        sessionStorage.setItem("0", _picURL);
-    }
-    function compare() {
-    }
-    function saveTime(_name, _time) {
-        sessionStorage.setItem("0", _name);
-    }
+}
+function turnCard(_picURL) {
+    sessionStorage.setItem("0", _picURL);
+}
+function compare() {
+}
+function saveTime(_name, _time) {
+    sessionStorage.setItem("0", _name);
 }
 //# sourceMappingURL=scriptGame.js.map

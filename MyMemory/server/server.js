@@ -1,94 +1,70 @@
-import * as Http from "http";
-import * as Url from "url";
-import * as Mongo from "mongodb";
-
-
-export namespace Memory {
-
-    let cardsCollection: Mongo.Collection;
-    let scoreCollection: Mongo.Collection;
-    let result: Cards[];
-
-    let dblink: string = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net/Memory?retryWrites=true&w=majority";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Memory = void 0;
+const Http = require("http");
+const Url = require("url");
+const Mongo = require("mongodb");
+var Memory;
+(function (Memory) {
+    let cardsCollection;
+    let scoreCollection;
+    let result;
+    let dblink = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net/Memory?retryWrites=true&w=majority";
     //let dblink: string = "mongodb://localhost:27017"; 
-
-    let port: number = Number(process.env.PORT);
-
+    let port = Number(process.env.PORT);
     if (!port)
         port = 8100;
-
     start();
-
-    async function start(): Promise<void> {
-
+    async function start() {
         await connectMongo(dblink);
         startServer(port);
     }
-
-    function startServer(_port: number | string): void {
-
+    function startServer(_port) {
         console.log("Server wird gestartet");
-
-        let server: Http.Server = Http.createServer();
+        let server = Http.createServer();
         server.addListener("request", handleRequest);
         server.addListener("listening", handleListen);
         server.listen(_port);
     }
-
-    async function connectMongo(_dblink: string): Promise<void> {
-
-        let options: Mongo.MongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
-        let mongoClient: Mongo.MongoClient = new Mongo.MongoClient(_dblink, options);
+    async function connectMongo(_dblink) {
+        let options = { useNewUrlParser: true, useUnifiedTopology: true };
+        let mongoClient = new Mongo.MongoClient(_dblink, options);
         await mongoClient.connect();
         cardsCollection = mongoClient.db("Memory").collection("Cards");
         scoreCollection = mongoClient.db("Memory").collection("Scores");
         console.log("Verbindung zu Mongo Cards augebaut: ", cardsCollection != undefined);
         console.log("Verbindung zu Mongo Scores augebaut: ", scoreCollection != undefined);
     }
-
-    function handleListen(): void {
+    function handleListen() {
         console.log("I am Listening!");
     }
-
-    async function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): Promise<void> {
+    async function handleRequest(_request, _response) {
         console.log("Aaaaaah, I hear Voices!");
         console.log(_request.url);
-
         _response.setHeader("content-type", "text/html; charset=utf-8");
         _response.setHeader("Access-Control-Allow-Origin", "*");
-
         if (_request.url) {
-
-            let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            let path: string = <string>url.pathname;
-
+            let url = Url.parse(_request.url, true);
+            let path = url.pathname;
             if (path == "/showCards") {
-
-                let cursor: Mongo.Cursor = cardsCollection.find();
+                let cursor = cardsCollection.find();
                 result = await cursor.toArray();
                 _response.write(JSON.stringify(result));
-
             }
-
             if (path == "/showTopScores") {
-
-                let cursor: Mongo.Cursor = scoreCollection.find();
+                let cursor = scoreCollection.find().sort({ "time": 1 });
                 result = await cursor.toArray();
                 _response.write(JSON.stringify(result));
-
             }
-
             if (path == "/sendScore") {
-
                 console.log(url);
                 scoreCollection.insertOne(url.query);
                 _response.write("Score gespeichert");
                 await connectMongo(dblink);
-
             }
         }
         _response.end();
         console.log(_response);
-
     }
-}
+})(Memory = exports.Memory || (exports.Memory = {}));
+//# sourceMappingURL=server.js.map

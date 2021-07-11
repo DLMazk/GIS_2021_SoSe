@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node MyMemory/server.js"
+    "start": "node MyMemory/server/server.js"
   },
   "repository": {
     "type": "git",

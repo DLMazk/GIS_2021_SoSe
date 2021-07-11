@@ -9,10 +9,19 @@ let pics: HTMLDivElement = <HTMLDivElement>document.getElementById("pictures");
 let urlAdmin: string;
 //let urlsearchParameters: URLSearchParams;
 
+let goBack: HTMLButtonElement = <HTMLButtonElement>document.getElementById("toStart");
+goBack.addEventListener("click", goingBackToStart);
+
 function herokuURLAdmin(): void {
 
-    //urlAdmin = "https://dlmazk.herokuapp.com";
-    urlAdmin = "http://localhost:8100";
+    urlAdmin = "https://dlmazk.herokuapp.com";
+    // urlAdmin = "http://localhost:8100";
+
+}
+
+function goingBackToStart(): void {
+
+    window.open("index.html", "_self");
 
 }
 
@@ -36,8 +45,7 @@ async function showingAdminCards(): Promise<void> {
 
         let picture: HTMLElement = <HTMLElement>document.createElement("img");
         picture.setAttribute("src", query.picURL);
-        picture.addEventListener("click", function (): void { turnCard(query.picURL); });
-        //picture.addEventListener("click", compare);
         pics.appendChild(picture);
+        
     }
 }

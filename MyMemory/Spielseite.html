@@ -7,31 +7,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game MyMemory</title>
     <link rel="stylesheet" href="style.css">
-    <script src="scriptGame.js" defer></script>
+    <script src="./script/scriptGame.js" defer></script>
 </head>
 
 <body>
 
     <header>
         <h2>How to play</h2>
+        <div id="HowTo">
+            <p>Press Start to begin the Game. Pick a Card and it will turn Over. Pick another Card and see if they are the same.</p>
+            <p>Find all the pairs to win the Game and get a Place on the Scoreboard</p>
     </header>
 
     <main>
 
-        <p id="HowTo"></p>
+
+        </div>
         <div id="startButton">
-            <button id="start">Starten</button>
+            <button id="start">Start</button>
         </div>
 
         <div id="picturesGame">
 
         </div>
 
+        <table id="table">
+            <tbody>
+                
+                <tr>
+                    <td id="0"></td>
+                    <td id="1"></td>
+                    <td id="2"></td>
+                    <td id="3"></td>
+                </tr>
+
+                <tr>
+                    <td id="4"></td>
+                    <td id="5"></td>
+                    <td id="6"></td>
+                    <td id="7"></td>
+                </tr>
+
+                <tr>
+                    <td id="8"></td>
+                    <td id="9"></td>
+                    <td id="10"></td>
+                    <td id="11"></td>
+                </tr>
+
+                <tr>
+                    <td id="12"></td>
+                    <td id="13"></td>
+                    <td id="14"></td>
+                    <td id="15"></td>
+                </tr>
+            </tbody>
+        </table>
+
     </main>
 
     <footer>
-        <p id="contact"></p>
+        <p id="takeTime"></p>
     </footer>
+
 
 
 

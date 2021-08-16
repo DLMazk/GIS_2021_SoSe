@@ -10,7 +10,7 @@ let urlAdmin: string;
 //let urlsearchParameters: URLSearchParams;
 
 let goBack: HTMLButtonElement = <HTMLButtonElement>document.getElementById("toStart");
-goBack.addEventListener("click", goingBackToStart);
+goBack.addEventListener("click", goingBackToStartAdmin);
 
 function herokuURLAdmin(): void {
 
@@ -19,7 +19,7 @@ function herokuURLAdmin(): void {
 
 }
 
-function goingBackToStart(): void {
+function goingBackToStartAdmin(): void {
 
     window.open("index.html", "_self");
 

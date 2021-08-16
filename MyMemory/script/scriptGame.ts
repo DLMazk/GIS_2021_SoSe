@@ -5,16 +5,12 @@ interface Cards {
 }
 
 
-
-
 let showButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("start");
 showButton.addEventListener("click", showingCards);
-// showButton.addEventListener("click", makeTime);
+
 
 const start: number = new Date().getTime();
 let count: number = 0;
-
-
 
 
 
@@ -22,22 +18,16 @@ let pick: HTMLDivElement = <HTMLDivElement>document.getElementById("picturesGame
 let url: string;
 let urlsearchParameters: URLSearchParams;
 
-function getFormData(): void {
-
-    let formData: FormData = new FormData(document.forms[0]);
-    // tslint:disable-next-line: no-any
-    urlsearchParameters = new URLSearchParams(<any>formData);
-}
 
 function herokuURL(): void {
 
-    url = "https://dlmazk.herokuapp.com";
-    //url = "http://localhost:8100";
+    //url = "https://dlmazk.herokuapp.com";
+    url = "http://localhost:8100";
 
 }
 
 
-
+// Bilder generieren mit Kommilitonin(randomize und z.T. showAround function) und Vinzenz(Tabelle)
 async function showingCards(): Promise<void> {
 
     let daten: FormData = new FormData(document.forms[0]);
@@ -55,12 +45,10 @@ async function showingCards(): Promise<void> {
 
         console.log(i);
         //Randomize the order
-        let randomize: number = Math.floor((Math.random() * ((showresponse.length - 1) - 0 + 1)) + 0);
+        let randomize: number = Math.floor(Math.random() * (showresponse.length));
         let query1: Cards = showresponse[randomize];
         let query2: Cards = query1;
 
-        // let picture: HTMLImageElement = <HTMLImageElement>document.createElement("img");
-        // picture.setAttribute("src", query1.picURL);
 
         cardsArray.push(query1);
         cardsArray.push(query2);
@@ -70,7 +58,7 @@ async function showingCards(): Promise<void> {
 
     }
     console.log(cardsArray);
-    showBack();
+    // showBack();
     sortingCards(cardsArray);
 
     let nowTime: Date = new Date;
@@ -80,28 +68,26 @@ async function showingCards(): Promise<void> {
 
 }
 
-function showBack(): void {
+// function showBack(): void {
 
-    for (let i: number = 0; i < 16; i++) {
-        let backOfCard: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById(i + "");
-        backOfCard.style.opacity = "1";
-    }
+//     for (let i: number = 0; i < 16; i++) {
+//         let backOfCard: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById(i + "");
+//         backOfCard.style.opacity = "1";
+//     }
 
-}
+// }
 
 function sortingCards(_cardsArray: Cards[]): void {
 
-    _cardsArray.sort(() => .5 - Math.random()); //Kommilitone hat mir diesen Link empholen, wodurch ich Lösungsmöglichkeiten probiert und diese übernommen habe(https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array)
+    _cardsArray.sort(() => 0.5 - Math.random()); //Kommilitone hat mir diesen Link empholen, wodurch ich Lösungsmöglichkeiten probiert und diese übernommen habe(https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array)
 
     for (let i: number = 0; i < 16; i++) {
 
         let cards: HTMLImageElement = showPicture(_cardsArray[i]);
         let getTable: HTMLTableDataCellElement = <HTMLTableDataCellElement>document.getElementById(i + "");
         getTable.appendChild(cards);
-
     }
 }
-
 
 function showPicture(_picture: Cards): HTMLImageElement {
 

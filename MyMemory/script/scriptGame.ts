@@ -16,7 +16,7 @@ let count: number = 0;
 
 let pick: HTMLDivElement = <HTMLDivElement>document.getElementById("picturesGame");
 let url: string;
-let urlsearchParameters: URLSearchParams;
+//let urlsearchParameters: URLSearchParams;
 
 
 function herokuURL(): void {
@@ -27,7 +27,7 @@ function herokuURL(): void {
 }
 
 
-// Bilder generieren mit Kommilitonin(randomize und z.T. showAround function) und Vinzenz(Tabelle)
+// Bilder generieren mit Kommilitonin(randomize und z.T. showAround function) und Vinzenz(Tabelle)aa
 async function showingCards(): Promise<void> {
 
     let daten: FormData = new FormData(document.forms[0]);

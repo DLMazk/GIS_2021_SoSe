@@ -5,12 +5,12 @@ let pics = document.getElementById("pictures");
 let urlAdmin;
 //let urlsearchParameters: URLSearchParams;
 let goBack = document.getElementById("toStart");
-goBack.addEventListener("click", goingBackToStart);
+goBack.addEventListener("click", goingBackToStartAdmin);
 function herokuURLAdmin() {
     urlAdmin = "https://dlmazk.herokuapp.com";
     // urlAdmin = "http://localhost:8100";
 }
-function goingBackToStart() {
+function goingBackToStartAdmin() {
     window.open("index.html", "_self");
 }
 async function showingAdminCards() {

@@ -16,6 +16,7 @@ export namespace Memory {
     if (!port)
         port = 8100;
 
+        
     start();
 
     async function start(): Promise<void> {

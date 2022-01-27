@@ -2,7 +2,7 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
 
-export namespace Refridgerator {
+export namespace Fridge {
 
     let fridgeCollection: Mongo.Collection;
     let result: Item[];
@@ -25,7 +25,7 @@ export namespace Refridgerator {
 
         await connectMongo(dblink);
         startingServer(port);
-
+        
     }
 
     async function connectMongo(_dblink: string): Promise<void> {

@@ -12,12 +12,11 @@ export namespace Fridge {
 
     let port: number = Number(process.env.PORT);
 
-    
-    if (!port) {
 
+    if (!port)
         port = 8100;
 
-    }
+
 
     startingUp();
 
@@ -25,7 +24,7 @@ export namespace Fridge {
 
         await connectMongo(dblink);
         startingServer(port);
-        
+
     }
 
     async function connectMongo(_dblink: string): Promise<void> {

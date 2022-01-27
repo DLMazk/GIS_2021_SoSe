@@ -1,4 +1,4 @@
-import * as sqlite3 from "sqlite3";
+/*import * as sqlite3 from "sqlite3";
 import * as sqlite from "sqlite";
 
 const dbFilePath: string = "hochschule.db"; // sqlite Datei
@@ -23,4 +23,4 @@ async function main() {
   await db.close();
 }
 
-main();
+main();*/

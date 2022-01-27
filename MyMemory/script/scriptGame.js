@@ -4,11 +4,11 @@ showButton.addEventListener("click", showingCards);
 const start = new Date().getTime();
 let count = 0;
 let pick = document.getElementById("picturesGame");
-let url;
+let url1;
 //let urlsearchParameters: URLSearchParams;
 function herokuURL() {
-    //url = "https://dlmazk.herokuapp.com";
-    url = "http://localhost:8100";
+    //url1 = "https://dlmazk.herokuapp.com";
+    url1 = "http://localhost:8100";
 }
 // Bilder generieren mit Kommilitonin(randomize und z.T. showAround function) und Vinzenz(Tabelle)aa
 async function showingCards() {
@@ -18,8 +18,8 @@ async function showingCards() {
     herokuURL();
     pick.innerHTML = "";
     console.log("So far so good!");
-    url += "/showCards" + "?" + query.toString();
-    let response = await fetch(url);
+    url1 += "/showCards" + "?" + query.toString();
+    let response = await fetch(url1);
     let showresponse = await response.json();
     let cardsArray = [];
     for (let i = 0; i < 8; i++) {

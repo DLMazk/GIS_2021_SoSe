@@ -1,19 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Refridgerator = void 0;
+exports.Fridge = void 0;
 const Http = require("http");
 const Url = require("url");
 const Mongo = require("mongodb");
-var Refridgerator;
-(function (Refridgerator) {
+var Fridge;
+(function (Fridge) {
     let fridgeCollection;
     let result;
-    let dblink = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net/Memory?retryWrites=true&w=majority";
+    let dblink = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net/Fridge?retryWrites=true&w=majority";
     //let dblink: string = "mongodb://localhost:27017"; 
     let port = Number(process.env.PORT);
-    if (!port) {
+    if (!port)
         port = 8100;
-    }
     startingUp();
     async function startingUp() {
         await connectMongo(dblink);
@@ -42,6 +41,7 @@ var Refridgerator;
             let url = Url.parse(_request.url, true);
             let path = url.pathname;
             if (path == "/showItems") {
+                _response.setHeader("content-type", "text/html; charset=utf-8");
                 let cursor = fridgeCollection.find();
                 result = await cursor.toArray();
                 _response.write(JSON.stringify(result));
@@ -53,5 +53,5 @@ var Refridgerator;
     function handleListen() {
         console.log("I'm Listening");
     }
-})(Refridgerator = exports.Refridgerator || (exports.Refridgerator = {}));
+})(Fridge = exports.Fridge || (exports.Fridge = {}));
 //# sourceMappingURL=server.js.map

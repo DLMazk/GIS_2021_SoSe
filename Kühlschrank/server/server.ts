@@ -7,12 +7,12 @@ export namespace Refridgerator {
     let fridgeCollection: Mongo.Collection;
     let result: Item[];
 
-    let dblink: string = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net/Memory?retryWrites=true&w=majority";
+    let dblink: string = "mongodb+srv://MazkDL:okazakiVfB31@gis-sose-2021.veqpi.mongodb.net/Fridge?retryWrites=true&w=majority";
     //let dblink: string = "mongodb://localhost:27017"; 
 
     let port: number = Number(process.env.PORT);
 
-
+    
     if (!port) {
 
         port = 8100;

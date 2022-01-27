@@ -42,7 +42,7 @@
             itemsArr.push(listing);
             
         }
-
+        console.log(itemsArr);
 
 
         //let theItem: HTMLElement = <HTMLElement>document.createElement("p");

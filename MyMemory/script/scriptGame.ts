@@ -15,14 +15,14 @@ let count: number = 0;
 
 
 let pick: HTMLDivElement = <HTMLDivElement>document.getElementById("picturesGame");
-let url: string;
+let url1: string;
 //let urlsearchParameters: URLSearchParams;
 
 
 function herokuURL(): void {
 
-    //url = "https://dlmazk.herokuapp.com";
-    url = "http://localhost:8100";
+    //url1 = "https://dlmazk.herokuapp.com";
+    url1 = "http://localhost:8100";
 
 }
 
@@ -36,8 +36,8 @@ async function showingCards(): Promise<void> {
     herokuURL();
     pick.innerHTML = "";
     console.log("So far so good!");
-    url += "/showCards" + "?" + query.toString();
-    let response: Response = await fetch(url);
+    url1 += "/showCards" + "?" + query.toString();
+    let response: Response = await fetch(url1);
     let showresponse: Cards[] = await response.json();
     let cardsArray: Cards[] = [];
 

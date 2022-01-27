@@ -1,7 +1,6 @@
 import * as Http from "http";
 import * as Url from "url";
 import * as Mongo from "mongodb";
-import path = require("path/posix");
 
 export namespace Refridgerator {
 
@@ -66,6 +65,7 @@ export namespace Refridgerator {
 
             if (path == "/showItems") {
 
+                _response.setHeader("content-type", "text/html; charset=utf-8");
                 let cursor: Mongo.Cursor = fridgeCollection.find();
                 result = await cursor.toArray();
                 _response.write(JSON.stringify(result));
@@ -75,12 +75,6 @@ export namespace Refridgerator {
 
         _response.end();
         console.log(_response);
-
-
-
-
-
-
 
     }
 
